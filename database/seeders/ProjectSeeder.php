@@ -20,14 +20,13 @@ class ProjectSeeder extends Seeder
         }
 
         // Create multiple projects
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $project = Project::create([
                 'name' => $faker->company . ' Project',
                 'status' => $faker->randomElement(ProjectStatus::values()),
             ]);
 
-            // Assign 2-4 random users to this project
-            $randomUsers = $users->random(rand(2, 4));
+            $randomUsers = $users->random(rand(2, 10));
             $project->users()->attach($randomUsers);
         }
     }

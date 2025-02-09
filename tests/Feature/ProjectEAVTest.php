@@ -15,7 +15,7 @@ it('retrieves a dynamic project attribute', function () {
 
     $project = Project::create([
         'name' => $faker->company,
-        'status' => $faker->randomElement([ProjectStatus::PENDING->value, ProjectStatus::ACTIVE->value, ProjectStatus::COMPLETED->value]),
+        'status' => $faker->randomElement(ProjectStatus::values()),
     ]);
 
     $departmentAttribute = Attribute::create([
@@ -41,7 +41,7 @@ it('returns null for an undefined attribute', function () {
     
     $project = Project::create([
         'name' => $faker->company,
-        'status' => $faker->randomElement([ProjectStatus::PENDING->value, ProjectStatus::ACTIVE->value, ProjectStatus::COMPLETED->value]),
+        'status' => $faker->randomElement(ProjectStatus::values()),
     ]);
 
     expect($project->department)->toBeNull();
@@ -53,7 +53,7 @@ it('updates a dynamic project attribute', function () {
 
     $project = Project::create([
         'name' => $faker->company,
-        'status' => $faker->randomElement([ProjectStatus::PENDING->value, ProjectStatus::ACTIVE->value, ProjectStatus::COMPLETED->value]),
+        'status' => $faker->randomElement(ProjectStatus::values()),
     ]);
 
     $attribute = Attribute::create([

@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('attribute_values', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('')->nullable(false);
-            $table->tinyInteger('status')->default(1);
+            $table->foreignId('attribute_id')->constrained('attributes')->onDelete('cascade');
+            $table->foreignId('entity_id')->constrained('projects')->onDelete('cascade');
+            $table->text('value');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('attribute_values');
     }
 };

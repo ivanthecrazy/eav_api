@@ -1,0 +1,445 @@
+name: Timesheets
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/timesheets
+    metadata:
+      groupName: Timesheets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a list of all timesheets for the authenticated user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        name: per_page
+        description: 'The number of timesheets to return per page.'
+        required: false
+        example: 13
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      per_page: 13
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "task_name": "Some task name",
+                "date": "2025-01-01",
+                "hours": 4.5,
+                "project_id": 1,
+                "user_id": 1,
+                "created_at": "2025-01-01 12:00:00",
+                "updated_at": "2025-01-01 12:00:00",
+                "project": {
+                  "id": 1,
+                  "name": "Some project name",
+                  "status": 1,
+                  "created_at": "2025-01-01 12:00:00",
+                  "updated_at": "2025-01-01 12:00:00"
+                },
+                "user": {
+                  "id": 1,
+                  "first_name": "Some user name",
+                  "last_name": "Some user last name",
+                  "email": "some@email.com",
+                  "created_at": "2025-01-01 12:00:00",
+                  "updated_at": "2025-01-01 12:00:00"
+                }
+              }
+            ],
+            "links": {
+              "first": "http://localhost:8000/api/timesheets?page=1",
+              "last": "http://localhost:8000/api/timesheets?page=1",
+              "prev": null,
+              "next": null
+            },
+            "first_page_url": "http://localhost:8000/api/timesheets?page=1",
+            "from": 1,
+            "last_page": 1,
+            "last_page_url": "http://localhost:8000/api/timesheets?page=1",
+            "next_page_url": null,
+            "path": "http://localhost:8000/api/timesheets",
+            "per_page": 10,
+            "prev_page_url": null,
+            "to": 10,
+            "total": 15
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/timesheets
+    metadata:
+      groupName: Timesheets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a new timesheet record for the authenticated user. Available only for users assigned to the project.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      task_name:
+        name: task_name
+        description: 'The name of the task.'
+        required: true
+        example: asperiores
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      date:
+        name: date
+        description: 'The date of the timesheet.'
+        required: true
+        example: aut
+        type: date
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      hours:
+        name: hours
+        description: 'The number of hours worked.'
+        required: true
+        example: 4372124.43
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      project_id:
+        name: project_id
+        description: 'The ID of the project.'
+        required: true
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      task_name: asperiores
+      date: aut
+      hours: 4372124.43
+      project_id: 18
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+            "message": "Timesheet created successfully",
+            "timesheet": {
+              "id": 1,
+              "task_name": "Some task name",
+              "date": "2025-01-01",
+              "hours": 4.5,
+              "project_id": 1,
+              "user_id": 1,
+              "created_at": "2025-01-01 12:00:00",
+              "updated_at": "2025-01-01 12:00:00",
+              "project": {
+                "id": 1,
+                "name": "Some project name",
+                "status": 1,
+                "created_at": "2025-01-01 12:00:00",
+                "updated_at": "2025-01-01 12:00:00"
+              },
+              "user": {
+                "id": 1,
+                "first_name": "Some user name",
+                "last_name": "Some user last name",
+                "email": "some@email.com",
+                "created_at": "2025-01-01 12:00:00",
+                "updated_at": "2025-01-01 12:00:00"
+              }
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/timesheets/{id}'
+    metadata:
+      groupName: Timesheets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a single timesheet record. Available only for timesheets assigned to the authenticated user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the timesheet.'
+        required: true
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 8
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "id": 1,
+            "task_name": "Some task name",
+            "date": "2025-01-01",
+            "hours": 4.5,
+            "project_id": 1,
+            "user_id": 1,
+            "created_at": "2025-01-01 12:00:00",
+            "updated_at": "2025-01-01 12:00:00",
+            "project": {
+              "id": 1,
+              "name": "Some project name",
+              "status": 1,
+              "created_at": "2025-01-01 12:00:00",
+              "updated_at": "2025-01-01 12:00:00",
+            },
+            "user": {
+              "id": 1,
+              "first_name": "Some user name",
+              "last_name": "Some user last name",
+              "email": "some@email.com",
+              "created_at": "2025-01-01 12:00:00",
+              "updated_at": "2025-01-01 12:00:00"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/timesheets/{id}'
+    metadata:
+      groupName: Timesheets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update a timesheet record. Available only for timesheets assigned to the authenticated user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the timesheet.'
+        required: true
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 7
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      task_name:
+        name: task_name
+        description: 'The name of the task.'
+        required: true
+        example: pariatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      date:
+        name: date
+        description: 'The date of the timesheet.'
+        required: true
+        example: enim
+        type: date
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      hours:
+        name: hours
+        description: 'The number of hours worked.'
+        required: true
+        example: 363.4985
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      project_id:
+        name: project_id
+        description: 'The ID of the project.'
+        required: true
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      task_name: pariatur
+      date: enim
+      hours: 363.4985
+      project_id: 18
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Timesheet updated successfully",
+            "timesheet": {
+              "id": 1,
+              "task_name": "Some task name",
+              "date": "2025-01-01",
+              "hours": 4.5,
+              "project_id": 1,
+              "user_id": 1,
+              "created_at": "2025-01-01 12:00:00",
+              "updated_at": "2025-01-01 12:00:00",
+              "project": {
+                "id": 1,
+                "name": "Some project name",
+                "status": 1,
+                "created_at": "2025-01-01 12:00:00",
+                "updated_at": "2025-01-01 12:00:00"
+              },
+              "user": {
+                "id": 1,
+                "first_name": "Some user name",
+                "last_name": "Some user last name",
+                "email": "some@email.com",
+                "created_at": "2025-01-01 12:00:00",
+                "updated_at": "2025-01-01 12:00:00"
+              }
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/timesheets/{id}'
+    metadata:
+      groupName: Timesheets
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete a timesheet record. Available only for timesheets assigned to the authenticated user.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the timesheet.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 3
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "message": "Timesheet deleted successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

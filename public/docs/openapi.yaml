@@ -1,0 +1,1599 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/attributes:
+    get:
+      summary: 'Display a list of all attributes.'
+      operationId: displayAListOfAllAttributes
+      description: ''
+      parameters:
+        -
+          in: query
+          name: per_page
+          description: 'The number of attributes to return per page.'
+          example: 18
+          required: false
+          schema:
+            type: integer
+            description: 'The number of attributes to return per page.'
+            example: 18
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: 'Attribute 1'
+                      type: string
+                  links:
+                    first: 'http://localhost:8000/api/attributes?page=1'
+                    last: 'http://localhost:8000/api/attributes?page=1'
+                    prev: null
+                    next: null
+                  first_page_url: 'http://localhost:8000/api/attributes?page=1'
+                  from: 1
+                  last_page: 1
+                  last_page_url: 'http://localhost:8000/api/attributes?page=1'
+                  next_page_url: null
+                  path: 'http://localhost:8000/api/attributes'
+                  per_page: 10
+                  prev_page_url: null
+                  to: 10
+                  total: 15
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'Attribute 1'
+                        type: string
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: 'Attribute 1'
+                        type:
+                          type: string
+                          example: string
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/attributes?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/attributes?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  first_page_url:
+                    type: string
+                    example: 'http://localhost:8000/api/attributes?page=1'
+                  from:
+                    type: integer
+                    example: 1
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://localhost:8000/api/attributes?page=1'
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://localhost:8000/api/attributes'
+                  per_page:
+                    type: integer
+                    example: 10
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: integer
+                    example: 10
+                  total:
+                    type: integer
+                    example: 15
+      tags:
+        - Attributes
+    post:
+      summary: 'Create a new attribute.'
+      operationId: createANewAttribute
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Attribute created successfully'
+                  attribute:
+                    id: 1
+                    name: 'Attribute 1'
+                    type: string
+                properties:
+                  message:
+                    type: string
+                    example: 'Attribute created successfully'
+                  attribute:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Attribute 1'
+                      type:
+                        type: string
+                        example: string
+      tags:
+        - Attributes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the attribute.'
+                  example: sit
+                  nullable: false
+                type:
+                  type: number
+                  description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
+                  example: 58.61
+                  nullable: false
+              required:
+                - name
+                - type
+  '/api/attributes/{id}':
+    get:
+      summary: 'Display a single attribute.'
+      operationId: displayASingleAttribute
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'Attribute 1'
+                  type: string
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'Attribute 1'
+                  type:
+                    type: string
+                    example: string
+      tags:
+        - Attributes
+    put:
+      summary: 'Update an attribute.'
+      operationId: updateAnAttribute
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Attribute updated successfully'
+                  attribute:
+                    id: 1
+                    name: 'Attribute 1'
+                    type: string
+                properties:
+                  message:
+                    type: string
+                    example: 'Attribute updated successfully'
+                  attribute:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Attribute 1'
+                      type:
+                        type: string
+                        example: string
+      tags:
+        - Attributes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the attribute.'
+                  example: sit
+                  nullable: false
+                type:
+                  type: number
+                  description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
+                  example: 80.47
+                  nullable: false
+              required:
+                - name
+                - type
+    delete:
+      summary: 'Delete an attribute.'
+      operationId: deleteAnAttribute
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Attribute deleted successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Attribute deleted successfully'
+      tags:
+        - Attributes
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the attribute.'
+        example: 6
+        required: true
+        schema:
+          type: integer
+  /api/register:
+    post:
+      summary: 'Register a new user'
+      operationId: registerANewUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  \"message\": \"User registered successfully\",\n  \"user\": {\n    \"id\": 1,\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"created_at\": \"2021-01-01 00:00:00\",\n  },\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...\"\n}"
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'The first name of the user.'
+                  example: ut
+                  nullable: false
+                last_name:
+                  type: string
+                  description: 'The last name of the user.'
+                  example: dolor
+                  nullable: false
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: kilback.hildegard@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: f0/W!y7F<W^.0t~TCUy3
+                  nullable: false
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+      security: []
+  /api/login:
+    post:
+      summary: 'Authenticate a user and return a token'
+      operationId: authenticateAUserAndReturnAToken
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  \"user\": {\n    \"id\": 1,\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"created_at\": \"2021-01-01 00:00:00\",\n  },\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...\"\n}"
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: lilly17@example.org
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: '.y#fDzx%Y'
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: 'Logout user by revoking token'
+      operationId: logoutUserByRevokingToken
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Logged out successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Logged out successfully'
+      tags:
+        - Auth
+  /api/projects:
+    get:
+      summary: 'Display a list of projects. Available for all users, but only returns projects assigned to the authenticated user.'
+      operationId: displayAListOfProjectsAvailableForAllUsersButOnlyReturnsProjectsAssignedToTheAuthenticatedUser
+      description: ''
+      parameters:
+        -
+          in: query
+          name: per_page
+          description: 'The number of projects to return per page.'
+          example: 11
+          required: false
+          schema:
+            type: integer
+            description: 'The number of projects to return per page.'
+            example: 11
+            nullable: false
+        -
+          in: query
+          name: 'filter[attribute_name_operation]'
+          description: 'The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.'
+          example: cupiditate
+          required: false
+          schema:
+            type: string
+            description: 'The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.'
+            example: cupiditate
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: 'Project 1'
+                      status: 1
+                      created_at: '2025-01-01 12:00:00'
+                      updated_at: '2025-01-01 12:00:00'
+                      users:
+                        -
+                          id: 1
+                          first_name: John
+                          last_name: Doe
+                          email: user1@example.com
+                          created_at: '2025-01-01 12:00:00'
+                          updated_at: '2025-01-01 12:00:00'
+                      attribute_values:
+                        -
+                          id: 1
+                          attribute_id: 1
+                          entity_id: 1
+                          value: 'Value 1'
+                          created_at: '2025-01-01 12:00:00'
+                          updated_at: '2025-01-01 12:00:00'
+                          attribute_name: department
+                          attribute:
+                            id: 1
+                            name: 'Attribute 1'
+                            type: text
+                  links:
+                    first: 'http://localhost:8000/api/projects?page=1'
+                    last: 'http://localhost:8000/api/projects?page=1'
+                    prev: null
+                    next: null
+                  first_page_url: 'http://localhost:8000/api/projects?page=1'
+                  from: 1
+                  last_page: 1
+                  last_page_url: 'http://localhost:8000/api/projects?page=1'
+                  next_page_url: null
+                  path: 'http://localhost:8000/api/projects'
+                  per_page: 10
+                  prev_page_url: null
+                  to: 10
+                  total: 15
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: 'Project 1'
+                        status: 1
+                        created_at: '2025-01-01 12:00:00'
+                        updated_at: '2025-01-01 12:00:00'
+                        users:
+                          -
+                            id: 1
+                            first_name: John
+                            last_name: Doe
+                            email: user1@example.com
+                            created_at: '2025-01-01 12:00:00'
+                            updated_at: '2025-01-01 12:00:00'
+                        attribute_values:
+                          -
+                            id: 1
+                            attribute_id: 1
+                            entity_id: 1
+                            value: 'Value 1'
+                            created_at: '2025-01-01 12:00:00'
+                            updated_at: '2025-01-01 12:00:00'
+                            attribute_name: department
+                            attribute:
+                              id: 1
+                              name: 'Attribute 1'
+                              type: text
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: 'Project 1'
+                        status:
+                          type: integer
+                          example: 1
+                        created_at:
+                          type: string
+                          example: '2025-01-01 12:00:00'
+                        updated_at:
+                          type: string
+                          example: '2025-01-01 12:00:00'
+                        users:
+                          type: array
+                          example:
+                            -
+                              id: 1
+                              first_name: John
+                              last_name: Doe
+                              email: user1@example.com
+                              created_at: '2025-01-01 12:00:00'
+                              updated_at: '2025-01-01 12:00:00'
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 1
+                              first_name:
+                                type: string
+                                example: John
+                              last_name:
+                                type: string
+                                example: Doe
+                              email:
+                                type: string
+                                example: user1@example.com
+                              created_at:
+                                type: string
+                                example: '2025-01-01 12:00:00'
+                              updated_at:
+                                type: string
+                                example: '2025-01-01 12:00:00'
+                        attribute_values:
+                          type: array
+                          example:
+                            -
+                              id: 1
+                              attribute_id: 1
+                              entity_id: 1
+                              value: 'Value 1'
+                              created_at: '2025-01-01 12:00:00'
+                              updated_at: '2025-01-01 12:00:00'
+                              attribute_name: department
+                              attribute:
+                                id: 1
+                                name: 'Attribute 1'
+                                type: text
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 1
+                              attribute_id:
+                                type: integer
+                                example: 1
+                              entity_id:
+                                type: integer
+                                example: 1
+                              value:
+                                type: string
+                                example: 'Value 1'
+                              created_at:
+                                type: string
+                                example: '2025-01-01 12:00:00'
+                              updated_at:
+                                type: string
+                                example: '2025-01-01 12:00:00'
+                              attribute_name:
+                                type: string
+                                example: department
+                              attribute:
+                                type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                    example: 1
+                                  name:
+                                    type: string
+                                    example: 'Attribute 1'
+                                  type:
+                                    type: string
+                                    example: text
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/projects?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/projects?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  first_page_url:
+                    type: string
+                    example: 'http://localhost:8000/api/projects?page=1'
+                  from:
+                    type: integer
+                    example: 1
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://localhost:8000/api/projects?page=1'
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://localhost:8000/api/projects'
+                  per_page:
+                    type: integer
+                    example: 10
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: integer
+                    example: 10
+                  total:
+                    type: integer
+                    example: 15
+      tags:
+        - Projects
+    post:
+      summary: 'Store a newly created project. Available for all users'
+      operationId: storeANewlyCreatedProjectAvailableForAllUsers
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Project created successfully'
+                  project:
+                    id: 1
+                    name: 'Project 1'
+                    status: 1
+                    created_at: '2025-01-01 12:00:00'
+                    updated_at: '2025-01-01 12:00:00'
+                    users:
+                      -
+                        id: 1
+                        first_name: John
+                        last_name: Doe
+                        email: user1@example.com
+                        created_at: '2025-01-01 12:00:00'
+                        updated_at: '2025-01-01 12:00:00'
+                    attribute_values:
+                      -
+                        id: 1
+                        attribute_id: 1
+                        entity_id: 1
+                        value: 'Value 1'
+                        created_at: '2025-01-01 12:00:00'
+                        updated_at: '2025-01-01 12:00:00'
+                        attribute_name: department
+                        attribute:
+                          id: 1
+                          name: 'Attribute 1'
+                          type: text
+                properties:
+                  message:
+                    type: string
+                    example: 'Project created successfully'
+                  project:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Project 1'
+                      status:
+                        type: integer
+                        example: 1
+                      created_at:
+                        type: string
+                        example: '2025-01-01 12:00:00'
+                      updated_at:
+                        type: string
+                        example: '2025-01-01 12:00:00'
+                      users:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            first_name: John
+                            last_name: Doe
+                            email: user1@example.com
+                            created_at: '2025-01-01 12:00:00'
+                            updated_at: '2025-01-01 12:00:00'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            first_name:
+                              type: string
+                              example: John
+                            last_name:
+                              type: string
+                              example: Doe
+                            email:
+                              type: string
+                              example: user1@example.com
+                            created_at:
+                              type: string
+                              example: '2025-01-01 12:00:00'
+                            updated_at:
+                              type: string
+                              example: '2025-01-01 12:00:00'
+                      attribute_values:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            attribute_id: 1
+                            entity_id: 1
+                            value: 'Value 1'
+                            created_at: '2025-01-01 12:00:00'
+                            updated_at: '2025-01-01 12:00:00'
+                            attribute_name: department
+                            attribute:
+                              id: 1
+                              name: 'Attribute 1'
+                              type: text
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            attribute_id:
+                              type: integer
+                              example: 1
+                            entity_id:
+                              type: integer
+                              example: 1
+                            value:
+                              type: string
+                              example: 'Value 1'
+                            created_at:
+                              type: string
+                              example: '2025-01-01 12:00:00'
+                            updated_at:
+                              type: string
+                              example: '2025-01-01 12:00:00'
+                            attribute_name:
+                              type: string
+                              example: department
+                            attribute:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                name:
+                                  type: string
+                                  example: 'Attribute 1'
+                                type:
+                                  type: string
+                                  example: text
+      tags:
+        - Projects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the project.'
+                  example: veniam
+                  nullable: false
+                status:
+                  type: integer
+                  description: 'The status of the project.'
+                  example: 20
+                  nullable: false
+                user_ids:
+                  type: array
+                  description: 'The IDs of the users to assign to the project.'
+                  example:
+                    - ipsa
+                  items:
+                    type: string
+                attributes:
+                  type: array
+                  description: 'The attributes of the project. Each array item must have a name of already existing attribute and value.'
+                  example:
+                    - ratione
+                  items:
+                    type: string
+              required:
+                - name
+                - status
+                - user_ids
+                - attributes
+  '/api/projects/{id}':
+    get:
+      summary: 'Display a specific project. Available only for projects assigned to the authenticated user.'
+      operationId: displayASpecificProjectAvailableOnlyForProjectsAssignedToTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'Project 1'
+                  status: 1
+                  created_at: '2025-01-01 12:00:00'
+                  updated_at: '2025-01-01 12:00:00'
+                  users:
+                    -
+                      id: 1
+                      first_name: John
+                      last_name: Doe
+                      email: user1@example.com
+                      created_at: '2025-01-01 12:00:00'
+                      updated_at: '2025-01-01 12:00:00'
+                  attribute_values:
+                    -
+                      id: 1
+                      attribute_id: 1
+                      entity_id: 1
+                      value: 'Value 1'
+                      created_at: '2025-01-01 12:00:00'
+                      updated_at: '2025-01-01 12:00:00'
+                      attribute_name: department
+                      attribute:
+                        id: 1
+                        name: 'Attribute 1'
+                        type: text
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'Project 1'
+                  status:
+                    type: integer
+                    example: 1
+                  created_at:
+                    type: string
+                    example: '2025-01-01 12:00:00'
+                  updated_at:
+                    type: string
+                    example: '2025-01-01 12:00:00'
+                  users:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        first_name: John
+                        last_name: Doe
+                        email: user1@example.com
+                        created_at: '2025-01-01 12:00:00'
+                        updated_at: '2025-01-01 12:00:00'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        first_name:
+                          type: string
+                          example: John
+                        last_name:
+                          type: string
+                          example: Doe
+                        email:
+                          type: string
+                          example: user1@example.com
+                        created_at:
+                          type: string
+                          example: '2025-01-01 12:00:00'
+                        updated_at:
+                          type: string
+                          example: '2025-01-01 12:00:00'
+                  attribute_values:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        attribute_id: 1
+                        entity_id: 1
+                        value: 'Value 1'
+                        created_at: '2025-01-01 12:00:00'
+                        updated_at: '2025-01-01 12:00:00'
+                        attribute_name: department
+                        attribute:
+                          id: 1
+                          name: 'Attribute 1'
+                          type: text
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        attribute_id:
+                          type: integer
+                          example: 1
+                        entity_id:
+                          type: integer
+                          example: 1
+                        value:
+                          type: string
+                          example: 'Value 1'
+                        created_at:
+                          type: string
+                          example: '2025-01-01 12:00:00'
+                        updated_at:
+                          type: string
+                          example: '2025-01-01 12:00:00'
+                        attribute_name:
+                          type: string
+                          example: department
+                        attribute:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: 'Attribute 1'
+                            type:
+                              type: string
+                              example: text
+      tags:
+        - Projects
+    put:
+      summary: 'Update a project. Available only for projects assigned to the authenticated user.'
+      operationId: updateAProjectAvailableOnlyForProjectsAssignedToTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  \"message\": \"Project updated successfully\",\n  \"project\": {\n    \"id\": 1,\n    \"name\": \"Project 1\",\n    \"status\": 1,\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\",\n    \"users\": [\n      {\n        \"id\": 1,\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"user1@example.com\",\n        \"created_at\": \"2025-01-01 12:00:00\",\n        \"updated_at\": \"2025-01-01 12:00:00\"\n      }\n    ],\n    \"attribute_values\": [\n      {\n        \"id\": 1,\n        \"attribute_id\": 1,\n        \"entity_id\": 1,\n        \"value\": \"Value 1\",\n        \"created_at\": \"2025-01-01 12:00:00\",\n        \"updated_at\": \"2025-01-01 12:00:00\",\n        \"attribute_name\": \"department\",\n        \"attribute\": {\n          \"id\": 1,\n          \"name\": \"Attribute 1\",\n          \"type\": \"text\"\n        }\n      }\n    ]\n  }"
+      tags:
+        - Projects
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ccwdvbjuggslkfofzqrquttp
+                  nullable: false
+                status:
+                  type: integer
+                  description: ''
+                  example: 10
+                  nullable: false
+                attributes:
+                  type: array
+                  description: ''
+                  example: null
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: 'The <code>name</code> of an existing record in the attributes table.'
+                        example: laborum
+                        nullable: false
+                      value:
+                        type: string
+                        description: ''
+                        example: cumque
+                        nullable: false
+                    required:
+                      - name
+                      - value
+    delete:
+      summary: 'Remove a project. Available only for projects assigned to the authenticated user.'
+      operationId: removeAProjectAvailableOnlyForProjectsAssignedToTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Project deleted successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Project deleted successfully'
+      tags:
+        - Projects
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the project.'
+        example: 13
+        required: true
+        schema:
+          type: integer
+  /api/timesheets:
+    get:
+      summary: 'Display a list of all timesheets for the authenticated user.'
+      operationId: displayAListOfAllTimesheetsForTheAuthenticatedUser
+      description: ''
+      parameters:
+        -
+          in: query
+          name: per_page
+          description: 'The number of timesheets to return per page.'
+          example: 13
+          required: false
+          schema:
+            type: integer
+            description: 'The number of timesheets to return per page.'
+            example: 13
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      task_name: 'Some task name'
+                      date: '2025-01-01'
+                      hours: 4.5
+                      project_id: 1
+                      user_id: 1
+                      created_at: '2025-01-01 12:00:00'
+                      updated_at: '2025-01-01 12:00:00'
+                      project:
+                        id: 1
+                        name: 'Some project name'
+                        status: 1
+                        created_at: '2025-01-01 12:00:00'
+                        updated_at: '2025-01-01 12:00:00'
+                      user:
+                        id: 1
+                        first_name: 'Some user name'
+                        last_name: 'Some user last name'
+                        email: some@email.com
+                        created_at: '2025-01-01 12:00:00'
+                        updated_at: '2025-01-01 12:00:00'
+                  links:
+                    first: 'http://localhost:8000/api/timesheets?page=1'
+                    last: 'http://localhost:8000/api/timesheets?page=1'
+                    prev: null
+                    next: null
+                  first_page_url: 'http://localhost:8000/api/timesheets?page=1'
+                  from: 1
+                  last_page: 1
+                  last_page_url: 'http://localhost:8000/api/timesheets?page=1'
+                  next_page_url: null
+                  path: 'http://localhost:8000/api/timesheets'
+                  per_page: 10
+                  prev_page_url: null
+                  to: 10
+                  total: 15
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        task_name: 'Some task name'
+                        date: '2025-01-01'
+                        hours: 4.5
+                        project_id: 1
+                        user_id: 1
+                        created_at: '2025-01-01 12:00:00'
+                        updated_at: '2025-01-01 12:00:00'
+                        project:
+                          id: 1
+                          name: 'Some project name'
+                          status: 1
+                          created_at: '2025-01-01 12:00:00'
+                          updated_at: '2025-01-01 12:00:00'
+                        user:
+                          id: 1
+                          first_name: 'Some user name'
+                          last_name: 'Some user last name'
+                          email: some@email.com
+                          created_at: '2025-01-01 12:00:00'
+                          updated_at: '2025-01-01 12:00:00'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        task_name:
+                          type: string
+                          example: 'Some task name'
+                        date:
+                          type: string
+                          example: '2025-01-01'
+                        hours:
+                          type: number
+                          example: 4.5
+                        project_id:
+                          type: integer
+                          example: 1
+                        user_id:
+                          type: integer
+                          example: 1
+                        created_at:
+                          type: string
+                          example: '2025-01-01 12:00:00'
+                        updated_at:
+                          type: string
+                          example: '2025-01-01 12:00:00'
+                        project:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: 'Some project name'
+                            status:
+                              type: integer
+                              example: 1
+                            created_at:
+                              type: string
+                              example: '2025-01-01 12:00:00'
+                            updated_at:
+                              type: string
+                              example: '2025-01-01 12:00:00'
+                        user:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            first_name:
+                              type: string
+                              example: 'Some user name'
+                            last_name:
+                              type: string
+                              example: 'Some user last name'
+                            email:
+                              type: string
+                              example: some@email.com
+                            created_at:
+                              type: string
+                              example: '2025-01-01 12:00:00'
+                            updated_at:
+                              type: string
+                              example: '2025-01-01 12:00:00'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/timesheets?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/timesheets?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  first_page_url:
+                    type: string
+                    example: 'http://localhost:8000/api/timesheets?page=1'
+                  from:
+                    type: integer
+                    example: 1
+                  last_page:
+                    type: integer
+                    example: 1
+                  last_page_url:
+                    type: string
+                    example: 'http://localhost:8000/api/timesheets?page=1'
+                  next_page_url:
+                    type: string
+                    example: null
+                  path:
+                    type: string
+                    example: 'http://localhost:8000/api/timesheets'
+                  per_page:
+                    type: integer
+                    example: 10
+                  prev_page_url:
+                    type: string
+                    example: null
+                  to:
+                    type: integer
+                    example: 10
+                  total:
+                    type: integer
+                    example: 15
+      tags:
+        - Timesheets
+    post:
+      summary: 'Store a new timesheet record for the authenticated user. Available only for users assigned to the project.'
+      operationId: storeANewTimesheetRecordForTheAuthenticatedUserAvailableOnlyForUsersAssignedToTheProject
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Timesheet created successfully'
+                  timesheet:
+                    id: 1
+                    task_name: 'Some task name'
+                    date: '2025-01-01'
+                    hours: 4.5
+                    project_id: 1
+                    user_id: 1
+                    created_at: '2025-01-01 12:00:00'
+                    updated_at: '2025-01-01 12:00:00'
+                    project:
+                      id: 1
+                      name: 'Some project name'
+                      status: 1
+                      created_at: '2025-01-01 12:00:00'
+                      updated_at: '2025-01-01 12:00:00'
+                    user:
+                      id: 1
+                      first_name: 'Some user name'
+                      last_name: 'Some user last name'
+                      email: some@email.com
+                      created_at: '2025-01-01 12:00:00'
+                      updated_at: '2025-01-01 12:00:00'
+                properties:
+                  message:
+                    type: string
+                    example: 'Timesheet created successfully'
+                  timesheet:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      task_name:
+                        type: string
+                        example: 'Some task name'
+                      date:
+                        type: string
+                        example: '2025-01-01'
+                      hours:
+                        type: number
+                        example: 4.5
+                      project_id:
+                        type: integer
+                        example: 1
+                      user_id:
+                        type: integer
+                        example: 1
+                      created_at:
+                        type: string
+                        example: '2025-01-01 12:00:00'
+                      updated_at:
+                        type: string
+                        example: '2025-01-01 12:00:00'
+                      project:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'Some project name'
+                          status:
+                            type: integer
+                            example: 1
+                          created_at:
+                            type: string
+                            example: '2025-01-01 12:00:00'
+                          updated_at:
+                            type: string
+                            example: '2025-01-01 12:00:00'
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          first_name:
+                            type: string
+                            example: 'Some user name'
+                          last_name:
+                            type: string
+                            example: 'Some user last name'
+                          email:
+                            type: string
+                            example: some@email.com
+                          created_at:
+                            type: string
+                            example: '2025-01-01 12:00:00'
+                          updated_at:
+                            type: string
+                            example: '2025-01-01 12:00:00'
+      tags:
+        - Timesheets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                task_name:
+                  type: string
+                  description: 'The name of the task.'
+                  example: asperiores
+                  nullable: false
+                date:
+                  type: date
+                  description: 'The date of the timesheet.'
+                  example: aut
+                  nullable: false
+                hours:
+                  type: number
+                  description: 'The number of hours worked.'
+                  example: 4372124.43
+                  nullable: false
+                project_id:
+                  type: integer
+                  description: 'The ID of the project.'
+                  example: 18
+                  nullable: false
+              required:
+                - task_name
+                - date
+                - hours
+                - project_id
+  '/api/timesheets/{id}':
+    get:
+      summary: 'Display a single timesheet record. Available only for timesheets assigned to the authenticated user.'
+      operationId: displayASingleTimesheetRecordAvailableOnlyForTimesheetsAssignedToTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  \"id\": 1,\n  \"task_name\": \"Some task name\",\n  \"date\": \"2025-01-01\",\n  \"hours\": 4.5,\n  \"project_id\": 1,\n  \"user_id\": 1,\n  \"created_at\": \"2025-01-01 12:00:00\",\n  \"updated_at\": \"2025-01-01 12:00:00\",\n  \"project\": {\n    \"id\": 1,\n    \"name\": \"Some project name\",\n    \"status\": 1,\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\",\n  },\n  \"user\": {\n    \"id\": 1,\n    \"first_name\": \"Some user name\",\n    \"last_name\": \"Some user last name\",\n    \"email\": \"some@email.com\",\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\"\n  }\n}"
+      tags:
+        - Timesheets
+    put:
+      summary: 'Update a timesheet record. Available only for timesheets assigned to the authenticated user.'
+      operationId: updateATimesheetRecordAvailableOnlyForTimesheetsAssignedToTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Timesheet updated successfully'
+                  timesheet:
+                    id: 1
+                    task_name: 'Some task name'
+                    date: '2025-01-01'
+                    hours: 4.5
+                    project_id: 1
+                    user_id: 1
+                    created_at: '2025-01-01 12:00:00'
+                    updated_at: '2025-01-01 12:00:00'
+                    project:
+                      id: 1
+                      name: 'Some project name'
+                      status: 1
+                      created_at: '2025-01-01 12:00:00'
+                      updated_at: '2025-01-01 12:00:00'
+                    user:
+                      id: 1
+                      first_name: 'Some user name'
+                      last_name: 'Some user last name'
+                      email: some@email.com
+                      created_at: '2025-01-01 12:00:00'
+                      updated_at: '2025-01-01 12:00:00'
+                properties:
+                  message:
+                    type: string
+                    example: 'Timesheet updated successfully'
+                  timesheet:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      task_name:
+                        type: string
+                        example: 'Some task name'
+                      date:
+                        type: string
+                        example: '2025-01-01'
+                      hours:
+                        type: number
+                        example: 4.5
+                      project_id:
+                        type: integer
+                        example: 1
+                      user_id:
+                        type: integer
+                        example: 1
+                      created_at:
+                        type: string
+                        example: '2025-01-01 12:00:00'
+                      updated_at:
+                        type: string
+                        example: '2025-01-01 12:00:00'
+                      project:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'Some project name'
+                          status:
+                            type: integer
+                            example: 1
+                          created_at:
+                            type: string
+                            example: '2025-01-01 12:00:00'
+                          updated_at:
+                            type: string
+                            example: '2025-01-01 12:00:00'
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          first_name:
+                            type: string
+                            example: 'Some user name'
+                          last_name:
+                            type: string
+                            example: 'Some user last name'
+                          email:
+                            type: string
+                            example: some@email.com
+                          created_at:
+                            type: string
+                            example: '2025-01-01 12:00:00'
+                          updated_at:
+                            type: string
+                            example: '2025-01-01 12:00:00'
+      tags:
+        - Timesheets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                task_name:
+                  type: string
+                  description: 'The name of the task.'
+                  example: pariatur
+                  nullable: false
+                date:
+                  type: date
+                  description: 'The date of the timesheet.'
+                  example: enim
+                  nullable: false
+                hours:
+                  type: number
+                  description: 'The number of hours worked.'
+                  example: 363.4985
+                  nullable: false
+                project_id:
+                  type: integer
+                  description: 'The ID of the project.'
+                  example: 18
+                  nullable: false
+              required:
+                - task_name
+                - date
+                - hours
+                - project_id
+    delete:
+      summary: 'Delete a timesheet record. Available only for timesheets assigned to the authenticated user.'
+      operationId: deleteATimesheetRecordAvailableOnlyForTimesheetsAssignedToTheAuthenticatedUser
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Timesheet deleted successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'Timesheet deleted successfully'
+      tags:
+        - Timesheets
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the timesheet.'
+        example: 8
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Attributes
+    description: ''
+  -
+    name: Auth
+    description: ''
+  -
+    name: Projects
+    description: ''
+  -
+    name: Timesheets
+    description: ''

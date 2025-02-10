@@ -16,7 +16,7 @@ There are many infinite ways to improve this futher, but I think we have a reaso
 ### Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/project-eav-api.git
+git clone git@github.com:ivanthecrazy/eav_api.git
 ```
 
 ### Install dependencies

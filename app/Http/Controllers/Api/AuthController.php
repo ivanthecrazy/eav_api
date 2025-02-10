@@ -12,6 +12,23 @@ class AuthController extends Controller
 {
     /**
      * Register a new user
+     * 
+     * @group Auth
+     * @bodyParam first_name string required The first name of the user.
+     * @bodyParam last_name string required The last name of the user.
+     * @bodyParam email string required The email of the user.
+     * @bodyParam password string required The password of the user.
+     * @response 200 {
+     *   "message": "User registered successfully",
+     *   "user": {
+     *     "id": 1,
+     *     "first_name": "John",
+     *     "last_name": "Doe",
+     *     "email": "john.doe@example.com",
+     *     "created_at": "2021-01-01 00:00:00",
+     *   },
+     *   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."
+     * }
      */
     public function register(Request $request)
     {
@@ -40,6 +57,20 @@ class AuthController extends Controller
 
     /**
      * Authenticate a user and return a token
+     * 
+     * @group Auth
+     * @bodyParam email string required The email of the user.
+     * @bodyParam password string required The password of the user.
+     * @response 200 {
+     *   "user": {
+     *     "id": 1,
+     *     "first_name": "John",
+     *     "last_name": "Doe",
+     *     "email": "john.doe@example.com",
+     *     "created_at": "2021-01-01 00:00:00",
+     *   },
+     *   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9..."
+     * }
      */
     public function login(Request $request)
     {
@@ -63,6 +94,12 @@ class AuthController extends Controller
 
     /**
      * Logout user by revoking token
+     * 
+     * @group Auth
+     * @authenticated
+     * @response 200 {
+     *   "message": "Logged out successfully"
+     * }
      */
     public function logout(Request $request)
     {

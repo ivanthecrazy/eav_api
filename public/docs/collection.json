@@ -1,0 +1,751 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "340a8e7c-9638-4577-85d5-b39a6ad25e35",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Attributes",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a list of all attributes.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attributes",
+                            "query": [
+                                {
+                                    "key": "per_page",
+                                    "value": "18",
+                                    "description": "The number of attributes to return per page.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/attributes?per_page=18"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Attribute 1\",\n      \"type\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"first\": \"http:\/\/localhost:8000\/api\/attributes?page=1\",\n    \"last\": \"http:\/\/localhost:8000\/api\/attributes?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"first_page_url\": \"http:\/\/localhost:8000\/api\/attributes?page=1\",\n  \"from\": 1,\n  \"last_page\": 1,\n  \"last_page_url\": \"http:\/\/localhost:8000\/api\/attributes?page=1\",\n  \"next_page_url\": null,\n  \"path\": \"http:\/\/localhost:8000\/api\/attributes\",\n  \"per_page\": 10,\n  \"prev_page_url\": null,\n  \"to\": 10,\n  \"total\": 15\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new attribute.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attributes",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/attributes"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"sit\",\"type\":58.61}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Attribute created successfully\",\n  \"attribute\": {\n    \"id\": 1,\n    \"name\": \"Attribute 1\",\n    \"type\": \"string\"\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display a single attribute.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attributes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/attributes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "6",
+                                    "description": "The ID of the attribute."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"name\": \"Attribute 1\",\n  \"type\": \"string\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update an attribute.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attributes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/attributes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "14",
+                                    "description": "The ID of the attribute."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"sit\",\"type\":80.47}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Attribute updated successfully\",\n  \"attribute\": {\n    \"id\": 1,\n    \"name\": \"Attribute 1\",\n    \"type\": \"string\"\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete an attribute.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attributes\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/attributes\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "6",
+                                    "description": "The ID of the attribute."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Attribute deleted successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "Register a new user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"ut\",\"last_name\":\"dolor\",\"email\":\"kilback.hildegard@example.com\",\"password\":\"f0\\\/W!y7F<W^.0t~TCUy3\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"User registered successfully\",\n  \"user\": {\n    \"id\": 1,\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"created_at\": \"2021-01-01 00:00:00\",\n  },\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Authenticate a user and return a token",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"lilly17@example.org\",\"password\":\".y#fDzx%Y\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"user\": {\n    \"id\": 1,\n    \"first_name\": \"John\",\n    \"last_name\": \"Doe\",\n    \"email\": \"john.doe@example.com\",\n    \"created_at\": \"2021-01-01 00:00:00\",\n  },\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9...\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout user by revoking token",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Logged out successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Projects",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a list of projects. Available for all users, but only returns projects assigned to the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects",
+                            "query": [
+                                {
+                                    "key": "per_page",
+                                    "value": "11",
+                                    "description": "The number of projects to return per page.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Battribute_name_operation%5D",
+                                    "value": "cupiditate",
+                                    "description": "The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/projects?per_page=11&filter%5Battribute_name_operation%5D=cupiditate"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Project 1\",\n      \"status\": 1,\n      \"created_at\": \"2025-01-01 12:00:00\",\n      \"updated_at\": \"2025-01-01 12:00:00\",\n      \"users\": [\n        {\n          \"id\": 1,\n          \"first_name\": \"John\",\n          \"last_name\": \"Doe\",\n          \"email\": \"user1@example.com\",\n          \"created_at\": \"2025-01-01 12:00:00\",\n          \"updated_at\": \"2025-01-01 12:00:00\"\n        }\n      ],\n      \"attribute_values\": [\n        {\n          \"id\": 1,\n          \"attribute_id\": 1,\n          \"entity_id\": 1,\n          \"value\": \"Value 1\",\n          \"created_at\": \"2025-01-01 12:00:00\",\n          \"updated_at\": \"2025-01-01 12:00:00\",\n          \"attribute_name\": \"department\",\n          \"attribute\": {\n            \"id\": 1,\n            \"name\": \"Attribute 1\",\n            \"type\": \"text\"\n          }\n        }\n      ]\n    }\n  ],\n  \"links\": {\n    \"first\": \"http:\/\/localhost:8000\/api\/projects?page=1\",\n    \"last\": \"http:\/\/localhost:8000\/api\/projects?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"first_page_url\": \"http:\/\/localhost:8000\/api\/projects?page=1\",\n  \"from\": 1,\n  \"last_page\": 1,\n  \"last_page_url\": \"http:\/\/localhost:8000\/api\/projects?page=1\",\n  \"next_page_url\": null,\n  \"path\": \"http:\/\/localhost:8000\/api\/projects\",\n  \"per_page\": 10,\n  \"prev_page_url\": null,\n  \"to\": 10,\n  \"total\": 15\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created project. Available for all users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"veniam\",\"status\":20,\"user_ids\":[\"ipsa\"],\"attributes\":[\"ratione\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n  \"message\": \"Project created successfully\",\n  \"project\": {\n    \"id\": 1,\n    \"name\": \"Project 1\",\n    \"status\": 1,\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\",\n    \"users\": [\n      {\n        \"id\": 1,\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"user1@example.com\",\n        \"created_at\": \"2025-01-01 12:00:00\",\n        \"updated_at\": \"2025-01-01 12:00:00\"\n      }\n    ],\n    \"attribute_values\": [\n      {\n        \"id\": 1,\n        \"attribute_id\": 1,\n        \"entity_id\": 1,\n        \"value\": \"Value 1\",\n        \"created_at\": \"2025-01-01 12:00:00\",\n        \"updated_at\": \"2025-01-01 12:00:00\",\n        \"attribute_name\": \"department\",\n        \"attribute\": {\n          \"id\": 1,\n          \"name\": \"Attribute 1\",\n          \"type\": \"text\"\n        }\n      }\n    ]\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display a specific project. Available only for projects assigned to the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "13",
+                                    "description": "The ID of the project."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"name\": \"Project 1\",\n  \"status\": 1,\n  \"created_at\": \"2025-01-01 12:00:00\",\n  \"updated_at\": \"2025-01-01 12:00:00\",\n  \"users\": [\n    {\n      \"id\": 1,\n      \"first_name\": \"John\",\n      \"last_name\": \"Doe\",\n      \"email\": \"user1@example.com\",\n      \"created_at\": \"2025-01-01 12:00:00\",\n      \"updated_at\": \"2025-01-01 12:00:00\"\n    }\n  ],\n  \"attribute_values\": [\n    {\n      \"id\": 1,\n      \"attribute_id\": 1,\n      \"entity_id\": 1,\n      \"value\": \"Value 1\",\n      \"created_at\": \"2025-01-01 12:00:00\",\n      \"updated_at\": \"2025-01-01 12:00:00\",\n      \"attribute_name\": \"department\",\n      \"attribute\": {\n        \"id\": 1,\n        \"name\": \"Attribute 1\",\n        \"type\": \"text\"\n      }\n    }\n  ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a project. Available only for projects assigned to the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "13",
+                                    "description": "The ID of the project."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"ccwdvbjuggslkfofzqrquttp\",\"status\":10,\"attributes\":[{\"name\":\"laborum\",\"value\":\"cumque\"}]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Project updated successfully\",\n  \"project\": {\n    \"id\": 1,\n    \"name\": \"Project 1\",\n    \"status\": 1,\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\",\n    \"users\": [\n      {\n        \"id\": 1,\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"user1@example.com\",\n        \"created_at\": \"2025-01-01 12:00:00\",\n        \"updated_at\": \"2025-01-01 12:00:00\"\n      }\n    ],\n    \"attribute_values\": [\n      {\n        \"id\": 1,\n        \"attribute_id\": 1,\n        \"entity_id\": 1,\n        \"value\": \"Value 1\",\n        \"created_at\": \"2025-01-01 12:00:00\",\n        \"updated_at\": \"2025-01-01 12:00:00\",\n        \"attribute_name\": \"department\",\n        \"attribute\": {\n          \"id\": 1,\n          \"name\": \"Attribute 1\",\n          \"type\": \"text\"\n        }\n      }\n    ]\n  }",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove a project. Available only for projects assigned to the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/projects\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/projects\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "The ID of the project."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Project deleted successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Timesheets",
+            "description": "",
+            "item": [
+                {
+                    "name": "Display a list of all timesheets for the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets",
+                            "query": [
+                                {
+                                    "key": "per_page",
+                                    "value": "13",
+                                    "description": "The number of timesheets to return per page.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/timesheets?per_page=13"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"task_name\": \"Some task name\",\n      \"date\": \"2025-01-01\",\n      \"hours\": 4.5,\n      \"project_id\": 1,\n      \"user_id\": 1,\n      \"created_at\": \"2025-01-01 12:00:00\",\n      \"updated_at\": \"2025-01-01 12:00:00\",\n      \"project\": {\n        \"id\": 1,\n        \"name\": \"Some project name\",\n        \"status\": 1,\n        \"created_at\": \"2025-01-01 12:00:00\",\n        \"updated_at\": \"2025-01-01 12:00:00\"\n      },\n      \"user\": {\n        \"id\": 1,\n        \"first_name\": \"Some user name\",\n        \"last_name\": \"Some user last name\",\n        \"email\": \"some@email.com\",\n        \"created_at\": \"2025-01-01 12:00:00\",\n        \"updated_at\": \"2025-01-01 12:00:00\"\n      }\n    }\n  ],\n  \"links\": {\n    \"first\": \"http:\/\/localhost:8000\/api\/timesheets?page=1\",\n    \"last\": \"http:\/\/localhost:8000\/api\/timesheets?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"first_page_url\": \"http:\/\/localhost:8000\/api\/timesheets?page=1\",\n  \"from\": 1,\n  \"last_page\": 1,\n  \"last_page_url\": \"http:\/\/localhost:8000\/api\/timesheets?page=1\",\n  \"next_page_url\": null,\n  \"path\": \"http:\/\/localhost:8000\/api\/timesheets\",\n  \"per_page\": 10,\n  \"prev_page_url\": null,\n  \"to\": 10,\n  \"total\": 15\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a new timesheet record for the authenticated user. Available only for users assigned to the project.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"task_name\":\"asperiores\",\"date\":\"aut\",\"hours\":4372124.43,\"project_id\":18}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n  \"message\": \"Timesheet created successfully\",\n  \"timesheet\": {\n    \"id\": 1,\n    \"task_name\": \"Some task name\",\n    \"date\": \"2025-01-01\",\n    \"hours\": 4.5,\n    \"project_id\": 1,\n    \"user_id\": 1,\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\",\n    \"project\": {\n      \"id\": 1,\n      \"name\": \"Some project name\",\n      \"status\": 1,\n      \"created_at\": \"2025-01-01 12:00:00\",\n      \"updated_at\": \"2025-01-01 12:00:00\"\n    },\n    \"user\": {\n      \"id\": 1,\n      \"first_name\": \"Some user name\",\n      \"last_name\": \"Some user last name\",\n      \"email\": \"some@email.com\",\n      \"created_at\": \"2025-01-01 12:00:00\",\n      \"updated_at\": \"2025-01-01 12:00:00\"\n    }\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display a single timesheet record. Available only for timesheets assigned to the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "8",
+                                    "description": "The ID of the timesheet."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"task_name\": \"Some task name\",\n  \"date\": \"2025-01-01\",\n  \"hours\": 4.5,\n  \"project_id\": 1,\n  \"user_id\": 1,\n  \"created_at\": \"2025-01-01 12:00:00\",\n  \"updated_at\": \"2025-01-01 12:00:00\",\n  \"project\": {\n    \"id\": 1,\n    \"name\": \"Some project name\",\n    \"status\": 1,\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\",\n  },\n  \"user\": {\n    \"id\": 1,\n    \"first_name\": \"Some user name\",\n    \"last_name\": \"Some user last name\",\n    \"email\": \"some@email.com\",\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\"\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a timesheet record. Available only for timesheets assigned to the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "7",
+                                    "description": "The ID of the timesheet."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"task_name\":\"pariatur\",\"date\":\"enim\",\"hours\":363.4985,\"project_id\":18}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Timesheet updated successfully\",\n  \"timesheet\": {\n    \"id\": 1,\n    \"task_name\": \"Some task name\",\n    \"date\": \"2025-01-01\",\n    \"hours\": 4.5,\n    \"project_id\": 1,\n    \"user_id\": 1,\n    \"created_at\": \"2025-01-01 12:00:00\",\n    \"updated_at\": \"2025-01-01 12:00:00\",\n    \"project\": {\n      \"id\": 1,\n      \"name\": \"Some project name\",\n      \"status\": 1,\n      \"created_at\": \"2025-01-01 12:00:00\",\n      \"updated_at\": \"2025-01-01 12:00:00\"\n    },\n    \"user\": {\n      \"id\": 1,\n      \"first_name\": \"Some user name\",\n      \"last_name\": \"Some user last name\",\n      \"email\": \"some@email.com\",\n      \"created_at\": \"2025-01-01 12:00:00\",\n      \"updated_at\": \"2025-01-01 12:00:00\"\n    }\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete a timesheet record. Available only for timesheets assigned to the authenticated user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/timesheets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/timesheets\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "3",
+                                    "description": "The ID of the timesheet."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"Timesheet deleted successfully\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

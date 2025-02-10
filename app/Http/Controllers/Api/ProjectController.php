@@ -24,7 +24,65 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display a list of projects.
+     * Display a list of projects. Available for all users, but only returns projects assigned to the authenticated user.
+     * 
+     * @group Projects
+     * @queryParam per_page int The number of projects to return per page.
+     * @queryParam filter[attribute_name_operation] string The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.
+     * @authenticated
+     * @response 200 {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "name": "Project 1",
+     *       "status": 1,
+     *       "created_at": "2025-01-01 12:00:00",
+     *       "updated_at": "2025-01-01 12:00:00",
+     *       "users": [
+     *         {
+     *           "id": 1,
+     *           "first_name": "John",
+    *           "last_name": "Doe",
+     *           "email": "user1@example.com",
+     *           "created_at": "2025-01-01 12:00:00",
+     *           "updated_at": "2025-01-01 12:00:00"
+     *         }
+     *       ],
+     *       "attribute_values": [
+     *         {
+     *           "id": 1,
+     *           "attribute_id": 1,
+     *           "entity_id": 1,
+     *           "value": "Value 1",
+     *           "created_at": "2025-01-01 12:00:00",
+     *           "updated_at": "2025-01-01 12:00:00",
+     *           "attribute_name": "department",
+     *           "attribute": {
+     *             "id": 1,
+     *             "name": "Attribute 1",
+     *             "type": "text"
+     *           }
+     *         }
+     *       ]
+     *     }
+     *   ],
+     *   "links": {
+     *     "first": "http://localhost:8000/api/projects?page=1",
+     *     "last": "http://localhost:8000/api/projects?page=1",
+     *     "prev": null,
+     *     "next": null
+     *   },
+     *   "first_page_url": "http://localhost:8000/api/projects?page=1",
+     *   "from": 1,
+     *   "last_page": 1,
+     *   "last_page_url": "http://localhost:8000/api/projects?page=1",
+     *   "next_page_url": null,
+     *   "path": "http://localhost:8000/api/projects",
+     *   "per_page": 10,
+     *   "prev_page_url": null,
+     *   "to": 10,
+     *   "total": 15
+     * }
      */
     public function index(Request $request)
     {
@@ -42,7 +100,50 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store a newly created project.
+     * Store a newly created project. Available for all users
+     * 
+     * @group Projects
+     * @bodyParam name string required The name of the project.
+     * @bodyParam status int required The status of the project.
+     * @bodyParam user_ids array required The IDs of the users to assign to the project.
+     * @bodyParam attributes array required The attributes of the project. Each array item must have a name of already existing attribute and value.
+     * @authenticated
+     * @response 201 {
+     *   "message": "Project created successfully",
+     *   "project": {
+     *     "id": 1,
+     *     "name": "Project 1",
+     *     "status": 1,
+     *     "created_at": "2025-01-01 12:00:00",
+     *     "updated_at": "2025-01-01 12:00:00",
+     *     "users": [
+     *       {
+     *         "id": 1,
+     *         "first_name": "John",
+     *         "last_name": "Doe",
+     *         "email": "user1@example.com",
+     *         "created_at": "2025-01-01 12:00:00",
+     *         "updated_at": "2025-01-01 12:00:00"
+     *       }
+     *     ],
+     *     "attribute_values": [
+     *       {
+     *         "id": 1,
+     *         "attribute_id": 1,
+     *         "entity_id": 1,
+     *         "value": "Value 1",
+     *         "created_at": "2025-01-01 12:00:00",
+     *         "updated_at": "2025-01-01 12:00:00",
+     *         "attribute_name": "department",
+     *         "attribute": {
+     *           "id": 1,
+     *           "name": "Attribute 1",
+     *           "type": "text"
+     *         }
+     *       }
+     *     ]
+     *   }
+     * }
      */
     public function store(Request $request)
     {
@@ -77,7 +178,44 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display a specific project.
+     * Display a specific project. Available only for projects assigned to the authenticated user.
+     * 
+     * @group Projects
+     * @urlParam id int required The ID of the project.
+     * @authenticated
+     * @response 200 {
+     *   "id": 1,
+     *   "name": "Project 1",
+     *   "status": 1,
+     *   "created_at": "2025-01-01 12:00:00",
+     *   "updated_at": "2025-01-01 12:00:00",
+     *   "users": [
+     *     {
+     *       "id": 1,
+     *       "first_name": "John",
+     *       "last_name": "Doe",
+     *       "email": "user1@example.com",
+     *       "created_at": "2025-01-01 12:00:00",
+     *       "updated_at": "2025-01-01 12:00:00"
+     *     }
+     *   ],
+     *   "attribute_values": [
+     *     {
+     *       "id": 1,
+     *       "attribute_id": 1,
+     *       "entity_id": 1,
+     *       "value": "Value 1",
+     *       "created_at": "2025-01-01 12:00:00",
+     *       "updated_at": "2025-01-01 12:00:00",
+     *       "attribute_name": "department",
+     *       "attribute": {
+     *         "id": 1,
+     *         "name": "Attribute 1",
+     *         "type": "text"
+     *       }
+     *     }
+     *   ]
+     * }
      */
     public function show($id)
     {
@@ -93,7 +231,46 @@ class ProjectController extends Controller
     }
 
     /**
-     * Update a project.
+     * Update a project. Available only for projects assigned to the authenticated user.
+     * 
+     * @group Projects
+     * @urlParam id int required The ID of the project.
+     * @authenticated
+     * @response 200 {
+     *   "message": "Project updated successfully",
+     *   "project": {
+     *     "id": 1,
+     *     "name": "Project 1",
+     *     "status": 1,
+     *     "created_at": "2025-01-01 12:00:00",
+     *     "updated_at": "2025-01-01 12:00:00",
+     *     "users": [
+     *       {
+     *         "id": 1,
+     *         "first_name": "John",
+     *         "last_name": "Doe",
+     *         "email": "user1@example.com",
+     *         "created_at": "2025-01-01 12:00:00",
+     *         "updated_at": "2025-01-01 12:00:00"
+     *       }
+     *     ],
+     *     "attribute_values": [
+     *       {
+     *         "id": 1,
+     *         "attribute_id": 1,
+     *         "entity_id": 1,
+     *         "value": "Value 1",
+     *         "created_at": "2025-01-01 12:00:00",
+     *         "updated_at": "2025-01-01 12:00:00",
+     *         "attribute_name": "department",
+     *         "attribute": {
+     *           "id": 1,
+     *           "name": "Attribute 1",
+     *           "type": "text"
+     *         }
+     *       }
+     *     ]
+     *   }
      */
     public function update(Request $request, $id)
     {
@@ -124,7 +301,14 @@ class ProjectController extends Controller
     }
 
     /**
-     * Remove a project.
+     * Remove a project. Available only for projects assigned to the authenticated user.
+     * 
+     * @group Projects
+     * @urlParam id int required The ID of the project.
+     * @authenticated
+     * @response 200 {
+     *   "message": "Project deleted successfully"
+     * }
      */
     public function destroy($id)
     {

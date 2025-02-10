@@ -15,6 +15,35 @@ class AttributeController extends Controller
 
     /**
      * Display a list of all attributes.
+     * 
+     * @group Attributes
+     * @queryParam per_page int The number of attributes to return per page.
+     * @authenticated
+     * @response 200 {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "name": "Attribute 1",
+     *       "type": "string"
+     *     }
+     *   ],
+     *   "links": {
+     *     "first": "http://localhost:8000/api/attributes?page=1",
+     *     "last": "http://localhost:8000/api/attributes?page=1",
+     *     "prev": null,
+     *     "next": null
+     *   },
+     *   "first_page_url": "http://localhost:8000/api/attributes?page=1",
+     *   "from": 1,
+     *   "last_page": 1,
+     *   "last_page_url": "http://localhost:8000/api/attributes?page=1",
+     *   "next_page_url": null,
+     *   "path": "http://localhost:8000/api/attributes",
+     *   "per_page": 10,
+     *   "prev_page_url": null,
+     *   "to": 10,
+     *   "total": 15
+     * }
      */
     public function index(Request $request)
     {
@@ -24,7 +53,20 @@ class AttributeController extends Controller
     }
 
     /**
-     * Store a new attribute.
+     * Create a new attribute.
+     * 
+     * @group Attributes
+     * @bodyParam name string required The name of the attribute.
+     * @bodyParam type number required Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)
+     * @authenticated
+     * @response 200 {
+     *   "message": "Attribute created successfully",
+     *   "attribute": {
+     *     "id": 1,
+     *     "name": "Attribute 1",
+     *     "type": "string"
+     *   }
+     * }
      */
     public function store(Request $request)
     {
@@ -45,6 +87,15 @@ class AttributeController extends Controller
 
     /**
      * Display a single attribute.
+     * 
+     * @group Attributes
+     * @urlParam id int required The ID of the attribute.
+     * @authenticated
+     * @response 200 {
+     *   "id": 1,
+     *   "name": "Attribute 1",
+     *   "type": "string"
+     * }
      */
     public function show($id)
     {
@@ -56,6 +107,20 @@ class AttributeController extends Controller
 
     /**
      * Update an attribute.
+     * 
+     * @group Attributes
+     * @urlParam id int required The ID of the attribute.
+     * @bodyParam name string required The name of the attribute.
+     * @bodyParam type number required Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)
+     * @authenticated
+     * @response 200 {
+     *   "message": "Attribute updated successfully",
+     *   "attribute": {
+     *     "id": 1,
+     *     "name": "Attribute 1",
+     *     "type": "string"
+     *   }
+     * }
      */
     public function update(Request $request, $id)
     {
@@ -77,6 +142,13 @@ class AttributeController extends Controller
 
     /**
      * Delete an attribute.
+     * 
+     * @group Attributes
+     * @authenticated
+     * @urlParam id int required The ID of the attribute.
+     * @response 200 {
+     *   "message": "Attribute deleted successfully"
+     * }
      */
     public function destroy($id)
     {

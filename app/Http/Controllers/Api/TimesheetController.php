@@ -15,7 +15,56 @@ class TimesheetController extends Controller
     use AuthorizesRequests;
 
     /**
-     * List all timesheets.
+     * Display a list of all timesheets for the authenticated user.
+     * 
+     * @group Timesheets
+     * @queryParam per_page int The number of timesheets to return per page.
+     * @authenticated
+     * @response 200 {
+     *   "data": [
+     *     {
+     *       "id": 1,
+     *       "task_name": "Some task name",
+     *       "date": "2025-01-01",
+     *       "hours": 4.5,
+     *       "project_id": 1,
+     *       "user_id": 1,
+     *       "created_at": "2025-01-01 12:00:00",
+     *       "updated_at": "2025-01-01 12:00:00",
+     *       "project": {
+     *         "id": 1,
+     *         "name": "Some project name",
+     *         "status": 1,
+     *         "created_at": "2025-01-01 12:00:00",
+     *         "updated_at": "2025-01-01 12:00:00"
+     *       },
+     *       "user": {
+     *         "id": 1,
+     *         "first_name": "Some user name",
+     *         "last_name": "Some user last name",
+     *         "email": "some@email.com",
+     *         "created_at": "2025-01-01 12:00:00",
+     *         "updated_at": "2025-01-01 12:00:00"
+     *       }
+     *     }
+     *   ],
+     *   "links": {
+     *     "first": "http://localhost:8000/api/timesheets?page=1",
+     *     "last": "http://localhost:8000/api/timesheets?page=1",
+     *     "prev": null,
+     *     "next": null
+     *   },
+     *   "first_page_url": "http://localhost:8000/api/timesheets?page=1",
+     *   "from": 1,
+     *   "last_page": 1,
+     *   "last_page_url": "http://localhost:8000/api/timesheets?page=1",
+     *   "next_page_url": null,
+     *   "path": "http://localhost:8000/api/timesheets",
+     *   "per_page": 10,
+     *   "prev_page_url": null,
+     *   "to": 10,
+     *   "total": 15
+     * }
      */
     public function index(Request $request)
     {
@@ -25,7 +74,42 @@ class TimesheetController extends Controller
     }
 
     /**
-     * Store a new timesheet record.
+     * Store a new timesheet record for the authenticated user. Available only for users assigned to the project.
+     * 
+     * @group Timesheets
+     * @bodyParam task_name string required The name of the task.
+     * @bodyParam date date required The date of the timesheet.
+     * @bodyParam hours float required The number of hours worked.
+     * @bodyParam project_id int required The ID of the project.
+     * @authenticated
+     * @response 201 {
+     *   "message": "Timesheet created successfully",
+     *   "timesheet": {
+     *     "id": 1,
+     *     "task_name": "Some task name",
+     *     "date": "2025-01-01",
+     *     "hours": 4.5,
+     *     "project_id": 1,
+     *     "user_id": 1,
+     *     "created_at": "2025-01-01 12:00:00",
+     *     "updated_at": "2025-01-01 12:00:00", 
+     *     "project": {
+     *       "id": 1,
+     *       "name": "Some project name",
+     *       "status": 1,
+     *       "created_at": "2025-01-01 12:00:00",
+     *       "updated_at": "2025-01-01 12:00:00"
+     *     },
+     *     "user": {
+     *       "id": 1,
+     *       "first_name": "Some user name",
+     *       "last_name": "Some user last name",
+     *       "email": "some@email.com",
+     *       "created_at": "2025-01-01 12:00:00",
+     *       "updated_at": "2025-01-01 12:00:00"
+     *     }
+     *   }
+     * }
      */
     public function store(Request $request)
     {
@@ -58,7 +142,36 @@ class TimesheetController extends Controller
     }
 
     /**
-     * Display a single timesheet record.
+     * Display a single timesheet record. Available only for timesheets assigned to the authenticated user.
+     * 
+     * @group Timesheets
+     * @authenticated
+     * @urlParam id int required The ID of the timesheet.
+     * @response 200 {
+     *   "id": 1,
+     *   "task_name": "Some task name",
+     *   "date": "2025-01-01",
+     *   "hours": 4.5,
+     *   "project_id": 1,
+     *   "user_id": 1,
+     *   "created_at": "2025-01-01 12:00:00",
+     *   "updated_at": "2025-01-01 12:00:00",
+     *   "project": {
+     *     "id": 1,
+     *     "name": "Some project name",
+     *     "status": 1,
+     *     "created_at": "2025-01-01 12:00:00",
+     *     "updated_at": "2025-01-01 12:00:00",
+     *   },
+     *   "user": {
+     *     "id": 1,
+     *     "first_name": "Some user name",
+     *     "last_name": "Some user last name",
+     *     "email": "some@email.com",
+     *     "created_at": "2025-01-01 12:00:00",
+     *     "updated_at": "2025-01-01 12:00:00"
+     *   }
+     * }
      */
     public function show($id)
     {
@@ -72,7 +185,43 @@ class TimesheetController extends Controller
     }
 
     /**
-     * Update a timesheet record.
+     * Update a timesheet record. Available only for timesheets assigned to the authenticated user.
+     * 
+     * @group Timesheets
+     * @urlParam id int required The ID of the timesheet.
+     * @bodyParam task_name string required The name of the task.
+     * @bodyParam date date required The date of the timesheet.
+     * @bodyParam hours float required The number of hours worked.
+     * @bodyParam project_id int required The ID of the project.
+     * @authenticated
+     * @response 200 {
+     *   "message": "Timesheet updated successfully",
+     *   "timesheet": {
+     *     "id": 1,
+     *     "task_name": "Some task name",
+     *     "date": "2025-01-01",
+     *     "hours": 4.5,
+     *     "project_id": 1,
+     *     "user_id": 1,
+     *     "created_at": "2025-01-01 12:00:00",
+     *     "updated_at": "2025-01-01 12:00:00",
+     *     "project": {
+     *       "id": 1,
+     *       "name": "Some project name",
+     *       "status": 1,
+     *       "created_at": "2025-01-01 12:00:00",
+     *       "updated_at": "2025-01-01 12:00:00"
+     *     },
+     *     "user": {
+     *       "id": 1,
+     *       "first_name": "Some user name",
+     *       "last_name": "Some user last name",
+     *       "email": "some@email.com",
+     *       "created_at": "2025-01-01 12:00:00",
+     *       "updated_at": "2025-01-01 12:00:00"
+     *     }
+     *   }
+     * }
      */
     public function update(Request $request, $id)
     {
@@ -98,7 +247,14 @@ class TimesheetController extends Controller
     }
 
     /**
-     * Delete a timesheet record.
+     * Delete a timesheet record. Available only for timesheets assigned to the authenticated user.
+     * 
+     * @group Timesheets
+     * @urlParam id int required The ID of the timesheet.
+     * @authenticated
+     * @response 200 {
+     *   "message": "Timesheet deleted successfully"
+     * }
      */
     public function destroy($id)
     {

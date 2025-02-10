@@ -1,5 +1,9 @@
 # Project EAV API
 
+Live project is deployed on [eav.ivan-larionov.dev](https://eav.ivan-larionov.dev)
+Github repo is [here](https://github.com/ivanthecrazy/eav_api)
+API documentation is [here](https://eav.ivan-larionov.dev/docs/index.html)
+
 ## A few comments
 
 I tried to follow the task as closely as possible. However, I had to make a few assumptions:

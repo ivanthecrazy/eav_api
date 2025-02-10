@@ -49,17 +49,17 @@ class TimesheetController extends Controller
      *     }
      *   ],
      *   "links": {
-     *     "first": "http://localhost:8000/api/timesheets?page=1",
-     *     "last": "http://localhost:8000/api/timesheets?page=1",
+     *     "first": "https://eav.ivan-larionov.dev/api/timesheets?page=1",
+     *     "last": "https://eav.ivan-larionov.dev/api/timesheets?page=1",
      *     "prev": null,
      *     "next": null
      *   },
-     *   "first_page_url": "http://localhost:8000/api/timesheets?page=1",
+     *   "first_page_url": "https://eav.ivan-larionov.dev/api/timesheets?page=1",
      *   "from": 1,
      *   "last_page": 1,
-     *   "last_page_url": "http://localhost:8000/api/timesheets?page=1",
+     *   "last_page_url": "https://eav.ivan-larionov.dev/api/timesheets?page=1",
      *   "next_page_url": null,
-     *   "path": "http://localhost:8000/api/timesheets",
+     *   "path": "https://eav.ivan-larionov.dev/api/timesheets",
      *   "per_page": 10,
      *   "prev_page_url": null,
      *   "to": 10,

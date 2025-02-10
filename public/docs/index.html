@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost";
+        var tryItOutBaseUrl = "https://eav.ivan-larionov.dev/";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -166,7 +166,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>https://eav.ivan-larionov.dev/</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -195,7 +195,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/attributes?per_page=17" \
+    --get "https://eav.ivan-larionov.dev/api/attributes?per_page=14" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -203,11 +203,11 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/attributes"
+    "https://eav.ivan-larionov.dev/api/attributes"
 );
 
 const params = {
-    "per_page": "17",
+    "per_page": "14",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -240,17 +240,17 @@ fetch(url, {
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://localhost:8000/api/attributes?page=1&quot;,
-        &quot;last&quot;: &quot;http://localhost:8000/api/attributes?page=1&quot;,
+        &quot;first&quot;: &quot;https://eav.ivan-larionov.dev/api/attributes?page=1&quot;,
+        &quot;last&quot;: &quot;https://eav.ivan-larionov.dev/api/attributes?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
-    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/attributes?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;https://eav.ivan-larionov.dev/api/attributes?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/attributes?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;https://eav.ivan-larionov.dev/api/attributes?page=1&quot;,
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost:8000/api/attributes&quot;,
+    &quot;path&quot;: &quot;https://eav.ivan-larionov.dev/api/attributes&quot;,
     &quot;per_page&quot;: 10,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 10,
@@ -345,10 +345,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-attributes"
-               value="17"
+               value="14"
                data-component="query">
     <br>
-<p>The number of attributes to return per page. Example: <code>17</code></p>
+<p>The number of attributes to return per page. Example: <code>14</code></p>
             </div>
                 </form>
 
@@ -366,20 +366,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/attributes" \
+    "https://eav.ivan-larionov.dev/api/attributes" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"dolor\",
-    \"type\": 40922.4853
+    \"name\": \"libero\",
+    \"type\": 277934.7
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/attributes"
+    "https://eav.ivan-larionov.dev/api/attributes"
 );
 
 const headers = {
@@ -389,8 +389,8 @@ const headers = {
 };
 
 let body = {
-    "name": "dolor",
-    "type": 40922.4853
+    "name": "libero",
+    "type": 277934.7
 };
 
 fetch(url, {
@@ -504,10 +504,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-attributes"
-               value="dolor"
+               value="libero"
                data-component="body">
     <br>
-<p>The name of the attribute. Example: <code>dolor</code></p>
+<p>The name of the attribute. Example: <code>libero</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -515,10 +515,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="type"                data-endpoint="POSTapi-attributes"
-               value="40922.4853"
+               value="277934.7"
                data-component="body">
     <br>
-<p>Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select) Example: <code>40922.4853</code></p>
+<p>Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select) Example: <code>277934.7</code></p>
         </div>
         </form>
 
@@ -536,7 +536,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/attributes/16" \
+    --get "https://eav.ivan-larionov.dev/api/attributes/10" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -544,7 +544,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/attributes/16"
+    "https://eav.ivan-larionov.dev/api/attributes/10"
 );
 
 const headers = {
@@ -660,10 +660,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-attributes--id-"
-               value="16"
+               value="10"
                data-component="url">
     <br>
-<p>The ID of the attribute. Example: <code>16</code></p>
+<p>The ID of the attribute. Example: <code>10</code></p>
             </div>
                     </form>
 
@@ -681,20 +681,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/attributes/11" \
+    "https://eav.ivan-larionov.dev/api/attributes/20" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"sit\",
-    \"type\": 3.71455608
+    \"name\": \"similique\",
+    \"type\": 2.51214768
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/attributes/11"
+    "https://eav.ivan-larionov.dev/api/attributes/20"
 );
 
 const headers = {
@@ -704,8 +704,8 @@ const headers = {
 };
 
 let body = {
-    "name": "sit",
-    "type": 3.71455608
+    "name": "similique",
+    "type": 2.51214768
 };
 
 fetch(url, {
@@ -823,10 +823,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-attributes--id-"
-               value="11"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the attribute. Example: <code>11</code></p>
+<p>The ID of the attribute. Example: <code>20</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -835,10 +835,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-attributes--id-"
-               value="sit"
+               value="similique"
                data-component="body">
     <br>
-<p>The name of the attribute. Example: <code>sit</code></p>
+<p>The name of the attribute. Example: <code>similique</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
@@ -846,10 +846,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="type"                data-endpoint="PUTapi-attributes--id-"
-               value="3.71455608"
+               value="2.51214768"
                data-component="body">
     <br>
-<p>Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select) Example: <code>3.71455608</code></p>
+<p>Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select) Example: <code>2.51214768</code></p>
         </div>
         </form>
 
@@ -867,7 +867,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/attributes/3" \
+    "https://eav.ivan-larionov.dev/api/attributes/12" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -875,7 +875,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/attributes/3"
+    "https://eav.ivan-larionov.dev/api/attributes/12"
 );
 
 const headers = {
@@ -989,10 +989,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-attributes--id-"
-               value="3"
+               value="12"
                data-component="url">
     <br>
-<p>The ID of the attribute. Example: <code>3</code></p>
+<p>The ID of the attribute. Example: <code>12</code></p>
             </div>
                     </form>
 
@@ -1013,21 +1013,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/register" \
+    "https://eav.ivan-larionov.dev/api/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"eos\",
-    \"last_name\": \"in\",
-    \"email\": \"dominique.schneider@example.org\",
-    \"password\": \"2t(aO.p66,.Eizx0,ay\"
+    \"first_name\": \"doloremque\",
+    \"last_name\": \"autem\",
+    \"email\": \"mcollins@example.org\",
+    \"password\": \"h`~&lt;5@\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/register"
+    "https://eav.ivan-larionov.dev/api/register"
 );
 
 const headers = {
@@ -1036,10 +1036,10 @@ const headers = {
 };
 
 let body = {
-    "first_name": "eos",
-    "last_name": "in",
-    "email": "dominique.schneider@example.org",
-    "password": "2t(aO.p66,.Eizx0,ay"
+    "first_name": "doloremque",
+    "last_name": "autem",
+    "email": "mcollins@example.org",
+    "password": "h`~&lt;5@"
 };
 
 fetch(url, {
@@ -1145,10 +1145,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-register"
-               value="eos"
+               value="doloremque"
                data-component="body">
     <br>
-<p>The first name of the user. Example: <code>eos</code></p>
+<p>The first name of the user. Example: <code>doloremque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -1156,10 +1156,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-register"
-               value="in"
+               value="autem"
                data-component="body">
     <br>
-<p>The last name of the user. Example: <code>in</code></p>
+<p>The last name of the user. Example: <code>autem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1167,10 +1167,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-register"
-               value="dominique.schneider@example.org"
+               value="mcollins@example.org"
                data-component="body">
     <br>
-<p>The email of the user. Example: <code>dominique.schneider@example.org</code></p>
+<p>The email of the user. Example: <code>mcollins@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1178,10 +1178,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-register"
-               value="2t(aO.p66,.Eizx0,ay"
+               value="h`~<5@"
                data-component="body">
     <br>
-<p>The password of the user. Example: <code>2t(aO.p66,.Eizx0,ay</code></p>
+<p>The password of the user. Example: <code>h</code>~&lt;5@`</p>
         </div>
         </form>
 
@@ -1198,19 +1198,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/login" \
+    "https://eav.ivan-larionov.dev/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"wilson04@example.net\",
-    \"password\": \"92IY:\\\"\"
+    \"email\": \"amiya51@example.org\",
+    \"password\": \"y]|qJ}YD]gyG3?EH[$Wo\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/login"
+    "https://eav.ivan-larionov.dev/api/login"
 );
 
 const headers = {
@@ -1219,8 +1219,8 @@ const headers = {
 };
 
 let body = {
-    "email": "wilson04@example.net",
-    "password": "92IY:\""
+    "email": "amiya51@example.org",
+    "password": "y]|qJ}YD]gyG3?EH[$Wo"
 };
 
 fetch(url, {
@@ -1325,10 +1325,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="wilson04@example.net"
+               value="amiya51@example.org"
                data-component="body">
     <br>
-<p>The email of the user. Example: <code>wilson04@example.net</code></p>
+<p>The email of the user. Example: <code>amiya51@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1336,10 +1336,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="92IY:""
+               value="y]|qJ}YD]gyG3?EH[$Wo"
                data-component="body">
     <br>
-<p>The password of the user. Example: <code>92IY:"</code></p>
+<p>The password of the user. Example: <code>y]|qJ}YD]gyG3?EH[$Wo</code></p>
         </div>
         </form>
 
@@ -1357,7 +1357,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/logout" \
+    "https://eav.ivan-larionov.dev/api/logout" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1365,7 +1365,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/logout"
+    "https://eav.ivan-larionov.dev/api/logout"
 );
 
 const headers = {
@@ -1492,7 +1492,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/projects?per_page=8&amp;filter%5Battribute_name_operation%5D=officiis" \
+    --get "https://eav.ivan-larionov.dev/api/projects?per_page=13&amp;filter%5Battribute_name_operation%5D=molestiae" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1500,12 +1500,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/projects"
+    "https://eav.ivan-larionov.dev/api/projects"
 );
 
 const params = {
-    "per_page": "8",
-    "filter[attribute_name_operation]": "officiis",
+    "per_page": "13",
+    "filter[attribute_name_operation]": "molestiae",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1566,17 +1566,17 @@ fetch(url, {
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://localhost:8000/api/projects?page=1&quot;,
-        &quot;last&quot;: &quot;http://localhost:8000/api/projects?page=1&quot;,
+        &quot;first&quot;: &quot;https://eav.ivan-larionov.dev/api/projects?page=1&quot;,
+        &quot;last&quot;: &quot;https://eav.ivan-larionov.dev/api/projects?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
-    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/projects?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;https://eav.ivan-larionov.dev/api/projects?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/projects?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;https://eav.ivan-larionov.dev/api/projects?page=1&quot;,
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost:8000/api/projects&quot;,
+    &quot;path&quot;: &quot;https://eav.ivan-larionov.dev/api/projects&quot;,
     &quot;per_page&quot;: 10,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 10,
@@ -1671,10 +1671,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-projects"
-               value="8"
+               value="13"
                data-component="query">
     <br>
-<p>The number of projects to return per page. Example: <code>8</code></p>
+<p>The number of projects to return per page. Example: <code>13</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filter[attribute_name_operation]</code></b>&nbsp;&nbsp;
@@ -1682,10 +1682,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="filter[attribute_name_operation]"                data-endpoint="GETapi-projects"
-               value="officiis"
+               value="molestiae"
                data-component="query">
     <br>
-<p>The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards. Example: <code>officiis</code></p>
+<p>The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards. Example: <code>molestiae</code></p>
             </div>
                 </form>
 
@@ -1703,18 +1703,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/projects" \
+    "https://eav.ivan-larionov.dev/api/projects" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"commodi\",
-    \"status\": 13,
+    \"name\": \"architecto\",
+    \"status\": 2,
     \"user_ids\": [
-        \"qui\"
+        \"et\"
     ],
     \"attributes\": [
-        \"sit\"
+        \"officiis\"
     ]
 }"
 </code></pre></div>
@@ -1722,7 +1722,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/projects"
+    "https://eav.ivan-larionov.dev/api/projects"
 );
 
 const headers = {
@@ -1732,13 +1732,13 @@ const headers = {
 };
 
 let body = {
-    "name": "commodi",
-    "status": 13,
+    "name": "architecto",
+    "status": 2,
     "user_ids": [
-        "qui"
+        "et"
     ],
     "attributes": [
-        "sit"
+        "officiis"
     ]
 };
 
@@ -1881,10 +1881,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-projects"
-               value="commodi"
+               value="architecto"
                data-component="body">
     <br>
-<p>The name of the project. Example: <code>commodi</code></p>
+<p>The name of the project. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -1892,10 +1892,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="status"                data-endpoint="POSTapi-projects"
-               value="13"
+               value="2"
                data-component="body">
     <br>
-<p>The status of the project. Example: <code>13</code></p>
+<p>The status of the project. Example: <code>2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_ids</code></b>&nbsp;&nbsp;
@@ -1925,10 +1925,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="attributes.0.name"                data-endpoint="POSTapi-projects"
-               value="quo"
+               value="quae"
                data-component="body">
     <br>
-<p>The <code>name</code> of an existing record in the attributes table. Example: <code>quo</code></p>
+<p>The <code>name</code> of an existing record in the attributes table. Example: <code>quae</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>value</code></b>&nbsp;&nbsp;
@@ -1936,10 +1936,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="attributes.0.value"                data-endpoint="POSTapi-projects"
-               value="qui"
+               value="cumque"
                data-component="body">
     <br>
-<p>Example: <code>qui</code></p>
+<p>Example: <code>cumque</code></p>
                     </div>
                                     </details>
         </div>
@@ -1959,7 +1959,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/projects/8" \
+    --get "https://eav.ivan-larionov.dev/api/projects/8" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1967,7 +1967,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/projects/8"
+    "https://eav.ivan-larionov.dev/api/projects/8"
 );
 
 const headers = {
@@ -2132,17 +2132,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/projects/18" \
+    "https://eav.ivan-larionov.dev/api/projects/19" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"pmgrhviyjznycsmfzaglzsb\",
-    \"status\": 3,
+    \"name\": \"sufqotgptrdx\",
+    \"status\": 17,
     \"attributes\": [
         {
-            \"name\": \"dolores\",
-            \"value\": \"aut\"
+            \"name\": \"voluptates\",
+            \"value\": \"provident\"
         }
     ]
 }"
@@ -2151,7 +2151,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/projects/18"
+    "https://eav.ivan-larionov.dev/api/projects/19"
 );
 
 const headers = {
@@ -2161,12 +2161,12 @@ const headers = {
 };
 
 let body = {
-    "name": "pmgrhviyjznycsmfzaglzsb",
-    "status": 3,
+    "name": "sufqotgptrdx",
+    "status": 17,
     "attributes": [
         {
-            "name": "dolores",
-            "value": "aut"
+            "name": "voluptates",
+            "value": "provident"
         }
     ]
 };
@@ -2313,10 +2313,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-projects--id-"
-               value="18"
+               value="19"
                data-component="url">
     <br>
-<p>The ID of the project. Example: <code>18</code></p>
+<p>The ID of the project. Example: <code>19</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2325,10 +2325,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-projects--id-"
-               value="pmgrhviyjznycsmfzaglzsb"
+               value="sufqotgptrdx"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>pmgrhviyjznycsmfzaglzsb</code></p>
+<p>Must not be greater than 255 characters. Example: <code>sufqotgptrdx</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -2336,10 +2336,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="status"                data-endpoint="PUTapi-projects--id-"
-               value="3"
+               value="17"
                data-component="body">
     <br>
-<p>Example: <code>3</code></p>
+<p>Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
         <details>
@@ -2356,10 +2356,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="attributes.0.name"                data-endpoint="PUTapi-projects--id-"
-               value="dolores"
+               value="voluptates"
                data-component="body">
     <br>
-<p>The <code>name</code> of an existing record in the attributes table. Example: <code>dolores</code></p>
+<p>The <code>name</code> of an existing record in the attributes table. Example: <code>voluptates</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>value</code></b>&nbsp;&nbsp;
@@ -2367,10 +2367,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="attributes.0.value"                data-endpoint="PUTapi-projects--id-"
-               value="aut"
+               value="provident"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>provident</code></p>
                     </div>
                                     </details>
         </div>
@@ -2390,7 +2390,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/projects/4" \
+    "https://eav.ivan-larionov.dev/api/projects/3" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2398,7 +2398,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/projects/4"
+    "https://eav.ivan-larionov.dev/api/projects/3"
 );
 
 const headers = {
@@ -2512,10 +2512,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-projects--id-"
-               value="4"
+               value="3"
                data-component="url">
     <br>
-<p>The ID of the project. Example: <code>4</code></p>
+<p>The ID of the project. Example: <code>3</code></p>
             </div>
                     </form>
 
@@ -2537,7 +2537,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/timesheets?per_page=17" \
+    --get "https://eav.ivan-larionov.dev/api/timesheets?per_page=6" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2545,11 +2545,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/timesheets"
+    "https://eav.ivan-larionov.dev/api/timesheets"
 );
 
 const params = {
-    "per_page": "17",
+    "per_page": "6",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2602,17 +2602,17 @@ fetch(url, {
         }
     ],
     &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://localhost:8000/api/timesheets?page=1&quot;,
-        &quot;last&quot;: &quot;http://localhost:8000/api/timesheets?page=1&quot;,
+        &quot;first&quot;: &quot;https://eav.ivan-larionov.dev/api/timesheets?page=1&quot;,
+        &quot;last&quot;: &quot;https://eav.ivan-larionov.dev/api/timesheets?page=1&quot;,
         &quot;prev&quot;: null,
         &quot;next&quot;: null
     },
-    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/timesheets?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;https://eav.ivan-larionov.dev/api/timesheets?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/timesheets?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;https://eav.ivan-larionov.dev/api/timesheets?page=1&quot;,
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost:8000/api/timesheets&quot;,
+    &quot;path&quot;: &quot;https://eav.ivan-larionov.dev/api/timesheets&quot;,
     &quot;per_page&quot;: 10,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 10,
@@ -2707,10 +2707,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-timesheets"
-               value="17"
+               value="6"
                data-component="query">
     <br>
-<p>The number of timesheets to return per page. Example: <code>17</code></p>
+<p>The number of timesheets to return per page. Example: <code>6</code></p>
             </div>
                 </form>
 
@@ -2728,22 +2728,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/timesheets" \
+    "https://eav.ivan-larionov.dev/api/timesheets" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"task_name\": \"architecto\",
-    \"date\": \"ducimus\",
-    \"hours\": 23860968.136,
-    \"project_id\": 9
+    \"task_name\": \"deserunt\",
+    \"date\": \"esse\",
+    \"hours\": 226.4,
+    \"project_id\": 13
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/timesheets"
+    "https://eav.ivan-larionov.dev/api/timesheets"
 );
 
 const headers = {
@@ -2753,10 +2753,10 @@ const headers = {
 };
 
 let body = {
-    "task_name": "architecto",
-    "date": "ducimus",
-    "hours": 23860968.136,
-    "project_id": 9
+    "task_name": "deserunt",
+    "date": "esse",
+    "hours": 226.4,
+    "project_id": 13
 };
 
 fetch(url, {
@@ -2890,10 +2890,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="task_name"                data-endpoint="POSTapi-timesheets"
-               value="architecto"
+               value="deserunt"
                data-component="body">
     <br>
-<p>The name of the task. Example: <code>architecto</code></p>
+<p>The name of the task. Example: <code>deserunt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -2901,10 +2901,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-timesheets"
-               value="ducimus"
+               value="esse"
                data-component="body">
     <br>
-<p>The date of the timesheet. Example: <code>ducimus</code></p>
+<p>The date of the timesheet. Example: <code>esse</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>hours</code></b>&nbsp;&nbsp;
@@ -2912,10 +2912,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="hours"                data-endpoint="POSTapi-timesheets"
-               value="23860968.136"
+               value="226.4"
                data-component="body">
     <br>
-<p>The number of hours worked. Example: <code>23860968.136</code></p>
+<p>The number of hours worked. Example: <code>226.4</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>project_id</code></b>&nbsp;&nbsp;
@@ -2923,10 +2923,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="project_id"                data-endpoint="POSTapi-timesheets"
-               value="9"
+               value="13"
                data-component="body">
     <br>
-<p>The ID of the project. Example: <code>9</code></p>
+<p>The ID of the project. Example: <code>13</code></p>
         </div>
         </form>
 
@@ -2944,7 +2944,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/timesheets/3" \
+    --get "https://eav.ivan-larionov.dev/api/timesheets/19" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2952,7 +2952,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/timesheets/3"
+    "https://eav.ivan-larionov.dev/api/timesheets/19"
 );
 
 const headers = {
@@ -3088,10 +3088,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-timesheets--id-"
-               value="3"
+               value="19"
                data-component="url">
     <br>
-<p>The ID of the timesheet. Example: <code>3</code></p>
+<p>The ID of the timesheet. Example: <code>19</code></p>
             </div>
                     </form>
 
@@ -3109,22 +3109,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/timesheets/8" \
+    "https://eav.ivan-larionov.dev/api/timesheets/6" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"task_name\": \"alias\",
-    \"date\": \"eius\",
-    \"hours\": 15.37,
-    \"project_id\": 19
+    \"task_name\": \"autem\",
+    \"date\": \"officiis\",
+    \"hours\": 0.9726208,
+    \"project_id\": 2
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/timesheets/8"
+    "https://eav.ivan-larionov.dev/api/timesheets/6"
 );
 
 const headers = {
@@ -3134,10 +3134,10 @@ const headers = {
 };
 
 let body = {
-    "task_name": "alias",
-    "date": "eius",
-    "hours": 15.37,
-    "project_id": 19
+    "task_name": "autem",
+    "date": "officiis",
+    "hours": 0.9726208,
+    "project_id": 2
 };
 
 fetch(url, {
@@ -3275,10 +3275,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-timesheets--id-"
-               value="8"
+               value="6"
                data-component="url">
     <br>
-<p>The ID of the timesheet. Example: <code>8</code></p>
+<p>The ID of the timesheet. Example: <code>6</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3287,10 +3287,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="task_name"                data-endpoint="PUTapi-timesheets--id-"
-               value="alias"
+               value="autem"
                data-component="body">
     <br>
-<p>The name of the task. Example: <code>alias</code></p>
+<p>The name of the task. Example: <code>autem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -3298,10 +3298,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="PUTapi-timesheets--id-"
-               value="eius"
+               value="officiis"
                data-component="body">
     <br>
-<p>The date of the timesheet. Example: <code>eius</code></p>
+<p>The date of the timesheet. Example: <code>officiis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>hours</code></b>&nbsp;&nbsp;
@@ -3309,10 +3309,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="hours"                data-endpoint="PUTapi-timesheets--id-"
-               value="15.37"
+               value="0.9726208"
                data-component="body">
     <br>
-<p>The number of hours worked. Example: <code>15.37</code></p>
+<p>The number of hours worked. Example: <code>0.9726208</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>project_id</code></b>&nbsp;&nbsp;
@@ -3320,10 +3320,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="project_id"                data-endpoint="PUTapi-timesheets--id-"
-               value="19"
+               value="2"
                data-component="body">
     <br>
-<p>The ID of the project. Example: <code>19</code></p>
+<p>The ID of the project. Example: <code>2</code></p>
         </div>
         </form>
 
@@ -3341,7 +3341,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/timesheets/13" \
+    "https://eav.ivan-larionov.dev/api/timesheets/20" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3349,7 +3349,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/timesheets/13"
+    "https://eav.ivan-larionov.dev/api/timesheets/20"
 );
 
 const headers = {
@@ -3463,10 +3463,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-timesheets--id-"
-               value="13"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the timesheet. Example: <code>13</code></p>
+<p>The ID of the timesheet. Example: <code>20</code></p>
             </div>
                     </form>
 

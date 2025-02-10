@@ -26,7 +26,7 @@ endpoints:
         name: first_name
         description: 'The first name of the user.'
         required: true
-        example: eos
+        example: doloremque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -36,7 +36,7 @@ endpoints:
         name: last_name
         description: 'The last name of the user.'
         required: true
-        example: in
+        example: autem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -46,7 +46,7 @@ endpoints:
         name: email
         description: 'The email of the user.'
         required: true
-        example: dominique.schneider@example.org
+        example: mcollins@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -56,17 +56,17 @@ endpoints:
         name: password
         description: 'The password of the user.'
         required: true
-        example: '2t(aO.p66,.Eizx0,ay'
+        example: h`~<5@
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      first_name: eos
-      last_name: in
-      email: dominique.schneider@example.org
-      password: '2t(aO.p66,.Eizx0,ay'
+      first_name: doloremque
+      last_name: autem
+      email: mcollins@example.org
+      password: h`~<5@
     fileParameters: []
     responses:
       -
@@ -117,7 +117,7 @@ endpoints:
         name: email
         description: 'The email of the user.'
         required: true
-        example: wilson04@example.net
+        example: amiya51@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -127,15 +127,15 @@ endpoints:
         name: password
         description: 'The password of the user.'
         required: true
-        example: '92IY:"'
+        example: 'y]|qJ}YD]gyG3?EH[$Wo'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: wilson04@example.net
-      password: '92IY:"'
+      email: amiya51@example.org
+      password: 'y]|qJ}YD]gyG3?EH[$Wo'
     fileParameters: []
     responses:
       -
@@ -198,7 +198,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer a1heEg4PdZ8v63bD6fa5cVk'
+      - 'Bearer D53EV8h6adkeacbg64fZ1vP'
     controller: null
     method: null
     route: null

@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost'
+    url: 'https://eav.ivan-larionov.dev'
 paths:
   /api/attributes:
     get:
@@ -17,12 +17,12 @@ paths:
           in: query
           name: per_page
           description: 'The number of attributes to return per page.'
-          example: 17
+          example: 14
           required: false
           schema:
             type: integer
             description: 'The number of attributes to return per page.'
-            example: 17
+            example: 14
             nullable: false
       responses:
         200:
@@ -38,16 +38,16 @@ paths:
                       name: 'Attribute 1'
                       type: string
                   links:
-                    first: 'http://localhost:8000/api/attributes?page=1'
-                    last: 'http://localhost:8000/api/attributes?page=1'
+                    first: 'https://eav.ivan-larionov.dev/api/attributes?page=1'
+                    last: 'https://eav.ivan-larionov.dev/api/attributes?page=1'
                     prev: null
                     next: null
-                  first_page_url: 'http://localhost:8000/api/attributes?page=1'
+                  first_page_url: 'https://eav.ivan-larionov.dev/api/attributes?page=1'
                   from: 1
                   last_page: 1
-                  last_page_url: 'http://localhost:8000/api/attributes?page=1'
+                  last_page_url: 'https://eav.ivan-larionov.dev/api/attributes?page=1'
                   next_page_url: null
-                  path: 'http://localhost:8000/api/attributes'
+                  path: 'https://eav.ivan-larionov.dev/api/attributes'
                   per_page: 10
                   prev_page_url: null
                   to: 10
@@ -77,10 +77,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost:8000/api/attributes?page=1'
+                        example: 'https://eav.ivan-larionov.dev/api/attributes?page=1'
                       last:
                         type: string
-                        example: 'http://localhost:8000/api/attributes?page=1'
+                        example: 'https://eav.ivan-larionov.dev/api/attributes?page=1'
                       prev:
                         type: string
                         example: null
@@ -89,7 +89,7 @@ paths:
                         example: null
                   first_page_url:
                     type: string
-                    example: 'http://localhost:8000/api/attributes?page=1'
+                    example: 'https://eav.ivan-larionov.dev/api/attributes?page=1'
                   from:
                     type: integer
                     example: 1
@@ -98,13 +98,13 @@ paths:
                     example: 1
                   last_page_url:
                     type: string
-                    example: 'http://localhost:8000/api/attributes?page=1'
+                    example: 'https://eav.ivan-larionov.dev/api/attributes?page=1'
                   next_page_url:
                     type: string
                     example: null
                   path:
                     type: string
-                    example: 'http://localhost:8000/api/attributes'
+                    example: 'https://eav.ivan-larionov.dev/api/attributes'
                   per_page:
                     type: integer
                     example: 10
@@ -165,12 +165,12 @@ paths:
                 name:
                   type: string
                   description: 'The name of the attribute.'
-                  example: dolor
+                  example: libero
                   nullable: false
                 type:
                   type: number
                   description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
-                  example: 40922.4853
+                  example: 277934.7
                   nullable: false
               required:
                 - name
@@ -250,12 +250,12 @@ paths:
                 name:
                   type: string
                   description: 'The name of the attribute.'
-                  example: sit
+                  example: similique
                   nullable: false
                 type:
                   type: number
                   description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
-                  example: 3.71455608
+                  example: 2.51214768
                   nullable: false
               required:
                 - name
@@ -285,7 +285,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the attribute.'
-        example: 16
+        example: 10
         required: true
         schema:
           type: integer
@@ -315,22 +315,22 @@ paths:
                 first_name:
                   type: string
                   description: 'The first name of the user.'
-                  example: eos
+                  example: doloremque
                   nullable: false
                 last_name:
                   type: string
                   description: 'The last name of the user.'
-                  example: in
+                  example: autem
                   nullable: false
                 email:
                   type: string
                   description: 'The email of the user.'
-                  example: dominique.schneider@example.org
+                  example: mcollins@example.org
                   nullable: false
                 password:
                   type: string
                   description: 'The password of the user.'
-                  example: '2t(aO.p66,.Eizx0,ay'
+                  example: h`~<5@
                   nullable: false
               required:
                 - first_name
@@ -364,12 +364,12 @@ paths:
                 email:
                   type: string
                   description: 'The email of the user.'
-                  example: wilson04@example.net
+                  example: amiya51@example.org
                   nullable: false
                 password:
                   type: string
                   description: 'The password of the user.'
-                  example: '92IY:"'
+                  example: 'y]|qJ}YD]gyG3?EH[$Wo'
                   nullable: false
               required:
                 - email
@@ -406,23 +406,23 @@ paths:
           in: query
           name: per_page
           description: 'The number of projects to return per page.'
-          example: 8
+          example: 13
           required: false
           schema:
             type: integer
             description: 'The number of projects to return per page.'
-            example: 8
+            example: 13
             nullable: false
         -
           in: query
           name: 'filter[attribute_name_operation]'
           description: 'The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.'
-          example: officiis
+          example: molestiae
           required: false
           schema:
             type: string
             description: 'The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.'
-            example: officiis
+            example: molestiae
             nullable: false
       responses:
         200:
@@ -461,16 +461,16 @@ paths:
                             name: 'Attribute 1'
                             type: text
                   links:
-                    first: 'http://localhost:8000/api/projects?page=1'
-                    last: 'http://localhost:8000/api/projects?page=1'
+                    first: 'https://eav.ivan-larionov.dev/api/projects?page=1'
+                    last: 'https://eav.ivan-larionov.dev/api/projects?page=1'
                     prev: null
                     next: null
-                  first_page_url: 'http://localhost:8000/api/projects?page=1'
+                  first_page_url: 'https://eav.ivan-larionov.dev/api/projects?page=1'
                   from: 1
                   last_page: 1
-                  last_page_url: 'http://localhost:8000/api/projects?page=1'
+                  last_page_url: 'https://eav.ivan-larionov.dev/api/projects?page=1'
                   next_page_url: null
-                  path: 'http://localhost:8000/api/projects'
+                  path: 'https://eav.ivan-larionov.dev/api/projects'
                   per_page: 10
                   prev_page_url: null
                   to: 10
@@ -611,10 +611,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost:8000/api/projects?page=1'
+                        example: 'https://eav.ivan-larionov.dev/api/projects?page=1'
                       last:
                         type: string
-                        example: 'http://localhost:8000/api/projects?page=1'
+                        example: 'https://eav.ivan-larionov.dev/api/projects?page=1'
                       prev:
                         type: string
                         example: null
@@ -623,7 +623,7 @@ paths:
                         example: null
                   first_page_url:
                     type: string
-                    example: 'http://localhost:8000/api/projects?page=1'
+                    example: 'https://eav.ivan-larionov.dev/api/projects?page=1'
                   from:
                     type: integer
                     example: 1
@@ -632,13 +632,13 @@ paths:
                     example: 1
                   last_page_url:
                     type: string
-                    example: 'http://localhost:8000/api/projects?page=1'
+                    example: 'https://eav.ivan-larionov.dev/api/projects?page=1'
                   next_page_url:
                     type: string
                     example: null
                   path:
                     type: string
-                    example: 'http://localhost:8000/api/projects'
+                    example: 'https://eav.ivan-larionov.dev/api/projects'
                   per_page:
                     type: integer
                     example: 10
@@ -810,25 +810,25 @@ paths:
                 name:
                   type: string
                   description: 'The name of the project.'
-                  example: commodi
+                  example: architecto
                   nullable: false
                 status:
                   type: integer
                   description: 'The status of the project.'
-                  example: 13
+                  example: 2
                   nullable: false
                 user_ids:
                   type: array
                   description: 'The IDs of the users to assign to the project.'
                   example:
-                    - qui
+                    - et
                   items:
                     type: string
                 attributes:
                   type: array
                   description: 'The attributes of the project. Each array item must have a name of already existing attribute and value.'
                   example:
-                    - sit
+                    - officiis
                   items:
                     type: string
               required:
@@ -1001,12 +1001,12 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: pmgrhviyjznycsmfzaglzsb
+                  example: sufqotgptrdx
                   nullable: false
                 status:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 17
                   nullable: false
                 attributes:
                   type: array
@@ -1018,12 +1018,12 @@ paths:
                       name:
                         type: string
                         description: 'The <code>name</code> of an existing record in the attributes table.'
-                        example: dolores
+                        example: voluptates
                         nullable: false
                       value:
                         type: string
                         description: ''
-                        example: aut
+                        example: provident
                         nullable: false
                     required:
                       - name
@@ -1067,12 +1067,12 @@ paths:
           in: query
           name: per_page
           description: 'The number of timesheets to return per page.'
-          example: 17
+          example: 6
           required: false
           schema:
             type: integer
             description: 'The number of timesheets to return per page.'
-            example: 17
+            example: 6
             nullable: false
       responses:
         200:
@@ -1106,16 +1106,16 @@ paths:
                         created_at: '2025-01-01 12:00:00'
                         updated_at: '2025-01-01 12:00:00'
                   links:
-                    first: 'http://localhost:8000/api/timesheets?page=1'
-                    last: 'http://localhost:8000/api/timesheets?page=1'
+                    first: 'https://eav.ivan-larionov.dev/api/timesheets?page=1'
+                    last: 'https://eav.ivan-larionov.dev/api/timesheets?page=1'
                     prev: null
                     next: null
-                  first_page_url: 'http://localhost:8000/api/timesheets?page=1'
+                  first_page_url: 'https://eav.ivan-larionov.dev/api/timesheets?page=1'
                   from: 1
                   last_page: 1
-                  last_page_url: 'http://localhost:8000/api/timesheets?page=1'
+                  last_page_url: 'https://eav.ivan-larionov.dev/api/timesheets?page=1'
                   next_page_url: null
-                  path: 'http://localhost:8000/api/timesheets'
+                  path: 'https://eav.ivan-larionov.dev/api/timesheets'
                   per_page: 10
                   prev_page_url: null
                   to: 10
@@ -1217,10 +1217,10 @@ paths:
                     properties:
                       first:
                         type: string
-                        example: 'http://localhost:8000/api/timesheets?page=1'
+                        example: 'https://eav.ivan-larionov.dev/api/timesheets?page=1'
                       last:
                         type: string
-                        example: 'http://localhost:8000/api/timesheets?page=1'
+                        example: 'https://eav.ivan-larionov.dev/api/timesheets?page=1'
                       prev:
                         type: string
                         example: null
@@ -1229,7 +1229,7 @@ paths:
                         example: null
                   first_page_url:
                     type: string
-                    example: 'http://localhost:8000/api/timesheets?page=1'
+                    example: 'https://eav.ivan-larionov.dev/api/timesheets?page=1'
                   from:
                     type: integer
                     example: 1
@@ -1238,13 +1238,13 @@ paths:
                     example: 1
                   last_page_url:
                     type: string
-                    example: 'http://localhost:8000/api/timesheets?page=1'
+                    example: 'https://eav.ivan-larionov.dev/api/timesheets?page=1'
                   next_page_url:
                     type: string
                     example: null
                   path:
                     type: string
-                    example: 'http://localhost:8000/api/timesheets'
+                    example: 'https://eav.ivan-larionov.dev/api/timesheets'
                   per_page:
                     type: integer
                     example: 10
@@ -1377,22 +1377,22 @@ paths:
                 task_name:
                   type: string
                   description: 'The name of the task.'
-                  example: architecto
+                  example: deserunt
                   nullable: false
                 date:
                   type: date
                   description: 'The date of the timesheet.'
-                  example: ducimus
+                  example: esse
                   nullable: false
                 hours:
                   type: number
                   description: 'The number of hours worked.'
-                  example: 23860968.136
+                  example: 226.4
                   nullable: false
                 project_id:
                   type: integer
                   description: 'The ID of the project.'
-                  example: 9
+                  example: 13
                   nullable: false
               required:
                 - task_name
@@ -1533,22 +1533,22 @@ paths:
                 task_name:
                   type: string
                   description: 'The name of the task.'
-                  example: alias
+                  example: autem
                   nullable: false
                 date:
                   type: date
                   description: 'The date of the timesheet.'
-                  example: eius
+                  example: officiis
                   nullable: false
                 hours:
                   type: number
                   description: 'The number of hours worked.'
-                  example: 15.37
+                  example: 0.9726208
                   nullable: false
                 project_id:
                   type: integer
                   description: 'The ID of the project.'
-                  example: 19
+                  example: 2
                   nullable: false
               required:
                 - task_name
@@ -1580,7 +1580,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the timesheet.'
-        example: 3
+        example: 19
         required: true
         schema:
           type: integer

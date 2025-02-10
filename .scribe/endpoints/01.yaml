@@ -25,7 +25,7 @@ endpoints:
         name: per_page
         description: 'The number of projects to return per page.'
         required: false
-        example: 8
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -35,15 +35,15 @@ endpoints:
         name: 'filter[attribute_name_operation]'
         description: 'The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.'
         required: false
-        example: officiis
+        example: molestiae
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      per_page: 8
-      'filter[attribute_name_operation]': officiis
+      per_page: 13
+      'filter[attribute_name_operation]': molestiae
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -88,17 +88,17 @@ endpoints:
               }
             ],
             "links": {
-              "first": "http://localhost:8000/api/projects?page=1",
-              "last": "http://localhost:8000/api/projects?page=1",
+              "first": "https://eav.ivan-larionov.dev/api/projects?page=1",
+              "last": "https://eav.ivan-larionov.dev/api/projects?page=1",
               "prev": null,
               "next": null
             },
-            "first_page_url": "http://localhost:8000/api/projects?page=1",
+            "first_page_url": "https://eav.ivan-larionov.dev/api/projects?page=1",
             "from": 1,
             "last_page": 1,
-            "last_page_url": "http://localhost:8000/api/projects?page=1",
+            "last_page_url": "https://eav.ivan-larionov.dev/api/projects?page=1",
             "next_page_url": null,
-            "path": "http://localhost:8000/api/projects",
+            "path": "https://eav.ivan-larionov.dev/api/projects",
             "per_page": 10,
             "prev_page_url": null,
             "to": 10,
@@ -111,7 +111,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8d1DhVk436gabcaPfEZe6v5'
+      - 'Bearer V63cb841hakgead6DEP5vZf'
     controller: null
     method: null
     route: null
@@ -142,7 +142,7 @@ endpoints:
         name: name
         description: 'The name of the project.'
         required: true
-        example: commodi
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -152,7 +152,7 @@ endpoints:
         name: status
         description: 'The status of the project.'
         required: true
-        example: 13
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -163,7 +163,7 @@ endpoints:
         description: 'The IDs of the users to assign to the project.'
         required: true
         example:
-          - qui
+          - et
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -174,7 +174,7 @@ endpoints:
         description: 'The attributes of the project. Each array item must have a name of already existing attribute and value.'
         required: true
         example:
-          - sit
+          - officiis
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -184,7 +184,7 @@ endpoints:
         name: 'attributes[].name'
         description: 'The <code>name</code> of an existing record in the attributes table.'
         required: true
-        example: quo
+        example: quae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -194,19 +194,19 @@ endpoints:
         name: 'attributes[].value'
         description: ''
         required: true
-        example: qui
+        example: cumque
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: commodi
-      status: 13
+      name: architecto
+      status: 2
       user_ids:
-        - qui
+        - et
       attributes:
-        - sit
+        - officiis
     fileParameters: []
     responses:
       -
@@ -255,7 +255,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ZcPfg5V6ab1e4E8v3aDhkd6'
+      - 'Bearer 6k8Df1v4aad56e3ZbhEVgPc'
     controller: null
     method: null
     route: null
@@ -339,7 +339,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1aVPZb5eE86c4k6vdDf3hga'
+      - 'Bearer PE3VaDek1v5b48aZ6dcfh6g'
     controller: null
     method: null
     route: null
@@ -367,14 +367,14 @@ endpoints:
         name: id
         description: 'The ID of the project.'
         required: true
-        example: 18
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 18
+      id: 19
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -382,7 +382,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: pmgrhviyjznycsmfzaglzsb
+        example: sufqotgptrdx
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -392,7 +392,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: 3
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -412,7 +412,7 @@ endpoints:
         name: 'attributes[].name'
         description: 'The <code>name</code> of an existing record in the attributes table.'
         required: true
-        example: dolores
+        example: voluptates
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -422,19 +422,19 @@ endpoints:
         name: 'attributes[].value'
         description: ''
         required: true
-        example: aut
+        example: provident
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: pmgrhviyjznycsmfzaglzsb
-      status: 3
+      name: sufqotgptrdx
+      status: 17
       attributes:
         -
-          name: dolores
-          value: aut
+          name: voluptates
+          value: provident
     fileParameters: []
     responses:
       -
@@ -482,7 +482,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer eDPaVg4Z3fvc8a5b6Ed16hk'
+      - 'Bearer dDcbEghZ518evVf3ak6a46P'
     controller: null
     method: null
     route: null
@@ -509,14 +509,14 @@ endpoints:
         name: id
         description: 'The ID of the project.'
         required: true
-        example: 4
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 4
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -536,7 +536,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Zafd4E5D6b3vcg68kPea1Vh'
+      - 'Bearer 8fekgZbhcaaVPE65d3v416D'
     controller: null
     method: null
     route: null

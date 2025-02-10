@@ -27,14 +27,14 @@ endpoints:
         name: per_page
         description: 'The number of timesheets to return per page.'
         required: false
-        example: 17
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      per_page: 17
+      per_page: 6
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -71,17 +71,17 @@ endpoints:
               }
             ],
             "links": {
-              "first": "http://localhost:8000/api/timesheets?page=1",
-              "last": "http://localhost:8000/api/timesheets?page=1",
+              "first": "https://eav.ivan-larionov.dev/api/timesheets?page=1",
+              "last": "https://eav.ivan-larionov.dev/api/timesheets?page=1",
               "prev": null,
               "next": null
             },
-            "first_page_url": "http://localhost:8000/api/timesheets?page=1",
+            "first_page_url": "https://eav.ivan-larionov.dev/api/timesheets?page=1",
             "from": 1,
             "last_page": 1,
-            "last_page_url": "http://localhost:8000/api/timesheets?page=1",
+            "last_page_url": "https://eav.ivan-larionov.dev/api/timesheets?page=1",
             "next_page_url": null,
-            "path": "http://localhost:8000/api/timesheets",
+            "path": "https://eav.ivan-larionov.dev/api/timesheets",
             "per_page": 10,
             "prev_page_url": null,
             "to": 10,
@@ -94,7 +94,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer fZaEVP8k16v5g4cD6bdeh3a'
+      - 'Bearer 6dfa1aPv3bZh46g5Dc8VEke'
     controller: null
     method: null
     route: null
@@ -125,7 +125,7 @@ endpoints:
         name: task_name
         description: 'The name of the task.'
         required: true
-        example: architecto
+        example: deserunt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -135,7 +135,7 @@ endpoints:
         name: date
         description: 'The date of the timesheet.'
         required: true
-        example: ducimus
+        example: esse
         type: date
         enumValues: []
         exampleWasSpecified: false
@@ -145,7 +145,7 @@ endpoints:
         name: hours
         description: 'The number of hours worked.'
         required: true
-        example: 23860968.136
+        example: 226.4
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -155,17 +155,17 @@ endpoints:
         name: project_id
         description: 'The ID of the project.'
         required: true
-        example: 9
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      task_name: architecto
-      date: ducimus
-      hours: 23860968.136
-      project_id: 9
+      task_name: deserunt
+      date: esse
+      hours: 226.4
+      project_id: 13
     fileParameters: []
     responses:
       -
@@ -206,7 +206,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3vaha5Ek4dVce6g861bZfDP'
+      - 'Bearer 4keVgfacaPED65hZv6d3b18'
     controller: null
     method: null
     route: null
@@ -233,14 +233,14 @@ endpoints:
         name: id
         description: 'The ID of the timesheet.'
         required: true
-        example: 3
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 3
+      id: 19
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -282,7 +282,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer Pga18hfEcde3vak6VDbZ546'
+      - 'Bearer 56D8Ebgv16a4adPZ3fheckV'
     controller: null
     method: null
     route: null
@@ -310,14 +310,14 @@ endpoints:
         name: id
         description: 'The ID of the timesheet.'
         required: true
-        example: 8
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 8
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -325,7 +325,7 @@ endpoints:
         name: task_name
         description: 'The name of the task.'
         required: true
-        example: alias
+        example: autem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -335,7 +335,7 @@ endpoints:
         name: date
         description: 'The date of the timesheet.'
         required: true
-        example: eius
+        example: officiis
         type: date
         enumValues: []
         exampleWasSpecified: false
@@ -345,7 +345,7 @@ endpoints:
         name: hours
         description: 'The number of hours worked.'
         required: true
-        example: 15.37
+        example: 0.9726208
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -355,17 +355,17 @@ endpoints:
         name: project_id
         description: 'The ID of the project.'
         required: true
-        example: 19
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      task_name: alias
-      date: eius
-      hours: 15.37
-      project_id: 19
+      task_name: autem
+      date: officiis
+      hours: 0.9726208
+      project_id: 2
     fileParameters: []
     responses:
       -
@@ -406,7 +406,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer d4geZV653hvcb1Ef8aPD6ka'
+      - 'Bearer vkZaehdabVc3EP166Df84g5'
     controller: null
     method: null
     route: null
@@ -433,14 +433,14 @@ endpoints:
         name: id
         description: 'The ID of the timesheet.'
         required: true
-        example: 13
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 13
+      id: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -460,7 +460,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 16EVaDZ58e3fvk6Pahgd4bc'
+      - 'Bearer ak63DE8dcbVZh6a1ePf4v5g'
     controller: null
     method: null
     route: null

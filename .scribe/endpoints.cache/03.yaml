@@ -27,14 +27,14 @@ endpoints:
         name: per_page
         description: 'The number of attributes to return per page.'
         required: false
-        example: 14
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      per_page: 14
+      per_page: 11
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -74,7 +74,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer D3e6Pf61Zbh5gckEaVvad48'
+      - 'Bearer vEge8ZaaVPk15fd466h3Dbc'
     controller: null
     method: null
     route: null
@@ -105,7 +105,7 @@ endpoints:
         name: name
         description: 'The name of the attribute.'
         required: true
-        example: libero
+        example: temporibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -115,15 +115,15 @@ endpoints:
         name: type
         description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
         required: true
-        example: 277934.7
+        example: 115.6
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: libero
-      type: 277934.7
+      name: temporibus
+      type: 115.6
     fileParameters: []
     responses:
       -
@@ -144,7 +144,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer bPZ16fVa5vahd6Decg43k8E'
+      - 'Bearer 5P8a41DEh6fdeVbvaZ6kc3g'
     controller: null
     method: null
     route: null
@@ -171,14 +171,14 @@ endpoints:
         name: id
         description: 'The ID of the attribute.'
         required: true
-        example: 10
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 10
+      id: 13
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -200,7 +200,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer fa4PEZk61c5Vb3gdDa68hve'
+      - 'Bearer c3dva5bhD61EeVkZaf8P4g6'
     controller: null
     method: null
     route: null
@@ -228,14 +228,14 @@ endpoints:
         name: id
         description: 'The ID of the attribute.'
         required: true
-        example: 20
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 20
+      id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -243,7 +243,7 @@ endpoints:
         name: name
         description: 'The name of the attribute.'
         required: true
-        example: similique
+        example: tempora
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -253,15 +253,15 @@ endpoints:
         name: type
         description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
         required: true
-        example: 2.51214768
+        example: 7176759.0
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: similique
-      type: 2.51214768
+      name: tempora
+      type: 7176759.0
     fileParameters: []
     responses:
       -
@@ -282,7 +282,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer vb6Zf8eVDE4hc3dk1a5gaP6'
+      - 'Bearer 14aP5b36VDaEhZ6dfv8cgek'
     controller: null
     method: null
     route: null
@@ -336,7 +336,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer f6Zc41d3De8EVPga5akvb6h'
+      - 'Bearer 3avkgha6Zb5Ed41e6DfPV8c'
     controller: null
     method: null
     route: null

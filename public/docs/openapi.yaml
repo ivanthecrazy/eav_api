@@ -17,12 +17,12 @@ paths:
           in: query
           name: per_page
           description: 'The number of attributes to return per page.'
-          example: 14
+          example: 11
           required: false
           schema:
             type: integer
             description: 'The number of attributes to return per page.'
-            example: 14
+            example: 11
             nullable: false
       responses:
         200:
@@ -165,12 +165,12 @@ paths:
                 name:
                   type: string
                   description: 'The name of the attribute.'
-                  example: libero
+                  example: temporibus
                   nullable: false
                 type:
                   type: number
                   description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
-                  example: 277934.7
+                  example: 115.6
                   nullable: false
               required:
                 - name
@@ -250,12 +250,12 @@ paths:
                 name:
                   type: string
                   description: 'The name of the attribute.'
-                  example: similique
+                  example: tempora
                   nullable: false
                 type:
                   type: number
                   description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
-                  example: 2.51214768
+                  example: 7176759.0
                   nullable: false
               required:
                 - name
@@ -285,7 +285,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the attribute.'
-        example: 10
+        example: 13
         required: true
         schema:
           type: integer
@@ -315,22 +315,22 @@ paths:
                 first_name:
                   type: string
                   description: 'The first name of the user.'
-                  example: doloremque
+                  example: perferendis
                   nullable: false
                 last_name:
                   type: string
                   description: 'The last name of the user.'
-                  example: autem
+                  example: est
                   nullable: false
                 email:
                   type: string
                   description: 'The email of the user.'
-                  example: mcollins@example.org
+                  example: tromp.drake@example.org
                   nullable: false
                 password:
                   type: string
                   description: 'The password of the user.'
-                  example: h`~<5@
+                  example: ')58DKCm&?'
                   nullable: false
               required:
                 - first_name
@@ -364,12 +364,12 @@ paths:
                 email:
                   type: string
                   description: 'The email of the user.'
-                  example: amiya51@example.org
+                  example: delilah.ernser@example.net
                   nullable: false
                 password:
                   type: string
                   description: 'The password of the user.'
-                  example: 'y]|qJ}YD]gyG3?EH[$Wo'
+                  example: 'e[8{!_&=W'
                   nullable: false
               required:
                 - email
@@ -417,12 +417,12 @@ paths:
           in: query
           name: 'filter[attribute_name_operation]'
           description: 'The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.'
-          example: molestiae
+          example: recusandae
           required: false
           schema:
             type: string
             description: 'The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.'
-            example: molestiae
+            example: recusandae
             nullable: false
       responses:
         200:
@@ -810,25 +810,25 @@ paths:
                 name:
                   type: string
                   description: 'The name of the project.'
-                  example: architecto
+                  example: dolor
                   nullable: false
                 status:
                   type: integer
                   description: 'The status of the project.'
-                  example: 2
+                  example: 19
                   nullable: false
                 user_ids:
                   type: array
                   description: 'The IDs of the users to assign to the project.'
                   example:
-                    - et
+                    - illo
                   items:
                     type: string
                 attributes:
                   type: array
                   description: 'The attributes of the project. Each array item must have a name of already existing attribute and value.'
                   example:
-                    - officiis
+                    - labore
                   items:
                     type: string
               required:
@@ -1001,12 +1001,12 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: sufqotgptrdx
+                  example: hwpboqzaavcjmj
                   nullable: false
                 status:
                   type: integer
                   description: ''
-                  example: 17
+                  example: 11
                   nullable: false
                 attributes:
                   type: array
@@ -1018,12 +1018,12 @@ paths:
                       name:
                         type: string
                         description: 'The <code>name</code> of an existing record in the attributes table.'
-                        example: voluptates
+                        example: saepe
                         nullable: false
                       value:
                         type: string
                         description: ''
-                        example: provident
+                        example: aut
                         nullable: false
                     required:
                       - name
@@ -1053,7 +1053,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the project.'
-        example: 8
+        example: 14
         required: true
         schema:
           type: integer
@@ -1067,12 +1067,12 @@ paths:
           in: query
           name: per_page
           description: 'The number of timesheets to return per page.'
-          example: 6
+          example: 16
           required: false
           schema:
             type: integer
             description: 'The number of timesheets to return per page.'
-            example: 6
+            example: 16
             nullable: false
       responses:
         200:
@@ -1377,22 +1377,22 @@ paths:
                 task_name:
                   type: string
                   description: 'The name of the task.'
-                  example: deserunt
+                  example: error
                   nullable: false
                 date:
                   type: date
                   description: 'The date of the timesheet.'
-                  example: esse
+                  example: laudantium
                   nullable: false
                 hours:
                   type: number
                   description: 'The number of hours worked.'
-                  example: 226.4
+                  example: 551104.088
                   nullable: false
                 project_id:
                   type: integer
                   description: 'The ID of the project.'
-                  example: 13
+                  example: 18
                   nullable: false
               required:
                 - task_name
@@ -1533,22 +1533,22 @@ paths:
                 task_name:
                   type: string
                   description: 'The name of the task.'
-                  example: autem
+                  example: saepe
                   nullable: false
                 date:
                   type: date
                   description: 'The date of the timesheet.'
-                  example: officiis
+                  example: dolor
                   nullable: false
                 hours:
                   type: number
                   description: 'The number of hours worked.'
-                  example: 0.9726208
+                  example: 53335166.749175
                   nullable: false
                 project_id:
                   type: integer
                   description: 'The ID of the project.'
-                  example: 2
+                  example: 11
                   nullable: false
               required:
                 - task_name
@@ -1580,7 +1580,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the timesheet.'
-        example: 19
+        example: 6
         required: true
         schema:
           type: integer

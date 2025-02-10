@@ -27,14 +27,14 @@ endpoints:
         name: per_page
         description: 'The number of timesheets to return per page.'
         required: false
-        example: 6
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      per_page: 6
+      per_page: 16
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -94,7 +94,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6dfa1aPv3bZh46g5Dc8VEke'
+      - 'Bearer dE38a561hDbegvkaPZ4fV6c'
     controller: null
     method: null
     route: null
@@ -125,7 +125,7 @@ endpoints:
         name: task_name
         description: 'The name of the task.'
         required: true
-        example: deserunt
+        example: error
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -135,7 +135,7 @@ endpoints:
         name: date
         description: 'The date of the timesheet.'
         required: true
-        example: esse
+        example: laudantium
         type: date
         enumValues: []
         exampleWasSpecified: false
@@ -145,7 +145,7 @@ endpoints:
         name: hours
         description: 'The number of hours worked.'
         required: true
-        example: 226.4
+        example: 551104.088
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -155,17 +155,17 @@ endpoints:
         name: project_id
         description: 'The ID of the project.'
         required: true
-        example: 13
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      task_name: deserunt
-      date: esse
-      hours: 226.4
-      project_id: 13
+      task_name: error
+      date: laudantium
+      hours: 551104.088
+      project_id: 18
     fileParameters: []
     responses:
       -
@@ -206,7 +206,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4keVgfacaPED65hZv6d3b18'
+      - 'Bearer EcZfh3k6gaaD4618dVv5Pbe'
     controller: null
     method: null
     route: null
@@ -233,14 +233,14 @@ endpoints:
         name: id
         description: 'The ID of the timesheet.'
         required: true
-        example: 19
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 19
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -282,7 +282,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 56D8Ebgv16a4adPZ3fheckV'
+      - 'Bearer aDde5vfZaVP6Ec3b846gkh1'
     controller: null
     method: null
     route: null
@@ -310,14 +310,14 @@ endpoints:
         name: id
         description: 'The ID of the timesheet.'
         required: true
-        example: 6
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 6
+      id: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -325,7 +325,7 @@ endpoints:
         name: task_name
         description: 'The name of the task.'
         required: true
-        example: autem
+        example: saepe
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -335,7 +335,7 @@ endpoints:
         name: date
         description: 'The date of the timesheet.'
         required: true
-        example: officiis
+        example: dolor
         type: date
         enumValues: []
         exampleWasSpecified: false
@@ -345,7 +345,7 @@ endpoints:
         name: hours
         description: 'The number of hours worked.'
         required: true
-        example: 0.9726208
+        example: 53335166.749175
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -355,17 +355,17 @@ endpoints:
         name: project_id
         description: 'The ID of the project.'
         required: true
-        example: 2
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      task_name: autem
-      date: officiis
-      hours: 0.9726208
-      project_id: 2
+      task_name: saepe
+      date: dolor
+      hours: 53335166.749175
+      project_id: 11
     fileParameters: []
     responses:
       -
@@ -406,7 +406,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer vkZaehdabVc3EP166Df84g5'
+      - 'Bearer 5c6ZakPE6bhaD4Vfd1v83ge'
     controller: null
     method: null
     route: null
@@ -433,14 +433,14 @@ endpoints:
         name: id
         description: 'The ID of the timesheet.'
         required: true
-        example: 20
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 20
+      id: 5
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -460,7 +460,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ak63DE8dcbVZh6a1ePf4v5g'
+      - 'Bearer P4e8g6Z5Ebdc361vkDahVaf'
     controller: null
     method: null
     route: null

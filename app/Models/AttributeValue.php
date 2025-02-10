@@ -8,6 +8,8 @@ class AttributeValue extends Model
 {
     protected $fillable = ['attribute_id', 'entity_id', 'value'];
 
+    protected $appends = ['attribute_name'];
+
     public function attribute()
     {
         return $this->belongsTo(Attribute::class);
@@ -16,5 +18,10 @@ class AttributeValue extends Model
     public function project()
     {
         return $this->belongsTo(Project::class, 'entity_id');
+    }
+
+    public function getAttributeNameAttribute()
+    {
+        return $this->attribute ? $this->attribute->name : null;
     }
 }

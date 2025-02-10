@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\ProjectStatus;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Project extends Model
 {
+    use HasFactory;
+    
     protected $fillable = ['name', 'status'];
 
     public function users()

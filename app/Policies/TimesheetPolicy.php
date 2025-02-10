@@ -31,7 +31,6 @@ class TimesheetPolicy
      */
     public function create(User $user, Project $project): bool
     {
-        Log::info("TimesheetPolicy::create called for user {$user->id} on project {$project->id}");
         return $project->users()->where('user_id', $user->id)->exists();
     }
 

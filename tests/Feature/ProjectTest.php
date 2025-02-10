@@ -11,15 +11,30 @@ use Faker\Factory as Faker;
 uses(RefreshDatabase::class);
 
 /** @test */
-it('retrieves all projects', function () {
-    Project::factory()->count(3)->create();
+it('retrieves only the projects assigned to the authenticated user', function () {
+    $user = User::factory()->create();
+    $otherUser = User::factory()->create();
 
-    Passport::actingAs(User::factory()->create());
+    Passport::actingAs($user);
+
+    $assignedProjects = Project::factory()->count(3)->create();
+    foreach ($assignedProjects as $project) {
+        $project->users()->attach($user);
+    }
+
+    $unassignedProjects = Project::factory()->count(2)->create();
+    foreach ($unassignedProjects as $project) {
+        $project->users()->attach($otherUser);
+    }
 
     $response = $this->getJson('/api/projects');
 
     $response->assertStatus(200)
         ->assertJsonCount(3);
+
+    foreach ($response->json() as $project) {
+        expect(collect($assignedProjects->pluck('id')))->toContain($project['id']);
+    }
 });
 
 /** @test */
@@ -27,6 +42,91 @@ it('fails to retrieve all projects without authentication', function () {
     $response = $this->getJson('/api/projects');
 
     $response->assertStatus(401);
+});
+
+/** @test */
+it('creates a project and assigns the current user automatically', function () {
+    $user = User::factory()->create();
+    Passport::actingAs($user); // Authenticate as the user
+
+    $response = $this->postJson('/api/projects', [
+        'name' => 'Cybersecurity Upgrade',
+        'status' => 1
+    ]);
+
+    $response->assertStatus(201)
+        ->assertJsonStructure(['message', 'project' => ['id', 'name', 'status', 'users']]);
+
+    $project = Project::first();
+
+    expect($project->users)->toHaveCount(1);
+    expect($project->users->first()->id)->toBe($user->id);
+});
+
+/** @test */
+it('creates a project and assigns additional users along with the current user', function () {
+    $user = User::factory()->create();
+    $additionalUsers = User::factory()->count(2)->create();
+    Passport::actingAs($user);
+
+    $response = $this->postJson('/api/projects', [
+        'name' => 'Network Security Upgrade',
+        'status' => 1,
+        'user_ids' => $additionalUsers->pluck('id')->toArray()
+    ]);
+
+    $response->assertStatus(201)
+        ->assertJsonStructure(['message', 'project' => ['id', 'name', 'status', 'users']]);
+
+    $project = Project::first();
+
+    expect($project->users)->toHaveCount(3);
+    expect($project->users->pluck('id'))->toContain($user->id);
+    expect($project->users->pluck('id'))->toContain($additionalUsers[0]->id);
+    expect($project->users->pluck('id'))->toContain($additionalUsers[1]->id);
+});
+
+/** @test */
+it('prevents duplicate user assignments when creating a project', function () {
+    $user = User::factory()->create();
+    Passport::actingAs($user);
+
+    $response = $this->postJson('/api/projects', [
+        'name' => 'Duplicate User Test',
+        'status' => 1,
+        'user_ids' => [$user->id] // The current user is manually added again
+    ]);
+
+    $response->assertStatus(201);
+
+    $project = Project::first();
+
+    expect($project->users)->toHaveCount(1); // Still should be only one user
+    expect($project->users->first()->id)->toBe($user->id);
+});
+
+/** @test */
+it('prevents unauthorized users from creating projects', function () {
+    $response = $this->postJson('/api/projects', [
+        'name' => 'Unauthorized Project',
+        'status' => 1
+    ]);
+
+    $response->assertStatus(401);
+});
+
+/** @test */
+it('validates project creation data', function () {
+    $user = User::factory()->create();
+    Passport::actingAs($user);
+
+    $response = $this->postJson('/api/projects', [
+        'name' => '', // Invalid: required
+        'status' => 'invalid_status', // Invalid: should be integer
+    ]);
+
+    $response->assertStatus(422)
+        ->assertJsonValidationErrors(['name', 'status']);
 });
 
 /** @test */
@@ -85,9 +185,11 @@ it('fails to create a project with non-existing attributes', function () {
 /** @test */
 it('retrieves a single project with attributes', function () {
     $faker = Faker::create();
-    Passport::actingAs(User::factory()->create());
+    $user = User::factory()->create();
+    Passport::actingAs($user);
 
     $project = Project::factory()->create();
+    $project->users()->attach($user);
     $attribute = Attribute::create(['name' => 'region', 'type' => 'text']);
 
     $attribute_value = $faker->country();
@@ -108,10 +210,13 @@ it('retrieves a single project with attributes', function () {
 
 /** @test */
 it('updates a project without attributes', function () {
-    Passport::actingAs(User::factory()->create());
+    $user = User::factory()->create();
+    Passport::actingAs($user);
 
+    // ✅ Create a project and assign the user
     $project = Project::factory()->create();
-    
+    $project->users()->attach($user);
+
     $updateData = [
         'name' => 'Updated Project Name'
     ];
@@ -122,16 +227,21 @@ it('updates a project without attributes', function () {
         ->assertJsonPath('message', 'Project updated successfully');
 
     $this->assertDatabaseHas('projects', [
+        'id' => $project->id,
         'name' => $updateData['name']
     ]);
 });
 
 /** @test */
-it('updates a project and its attributes', function () {
-    $faker = Faker::create();
-    Passport::actingAs(User::factory()->create());
+it('updates a project and its attributes if the user is assigned to it', function () {
+    $user = User::factory()->create();
+    Passport::actingAs($user);
 
+    // ✅ Create a project and assign the user
     $project = Project::factory()->create();
+    $project->users()->attach($user);
+
+    // ✅ Create an attribute and assign a value to the project
     $department = Attribute::create([
         'name' => 'department',
         'type' => 'text'
@@ -157,6 +267,11 @@ it('updates a project and its attributes', function () {
         ->assertJsonStructure(['project' => ['id', 'name', 'status', 'attribute_values']])
         ->assertJsonPath('project.attribute_values.0.value', 'Cybersecurity');
 
+    $this->assertDatabaseHas('projects', [
+        'id' => $project->id,
+        'name' => 'Updated Project Name',
+    ]);
+
     $this->assertDatabaseHas('attribute_values', [
         'attribute_id' => $department->id,
         'entity_id' => $project->id,
@@ -166,9 +281,11 @@ it('updates a project and its attributes', function () {
 
 /** @test */
 it('fails to update a project with non-existing attributes', function () {
-    Passport::actingAs(User::factory()->create());
+    $user = User::factory()->create();
+    Passport::actingAs($user);
 
     $project = Project::factory()->create();
+    $project->users()->attach($user);
 
     $response = $this->putJson("/api/projects/{$project->id}", [
         'attributes' => [
@@ -181,10 +298,30 @@ it('fails to update a project with non-existing attributes', function () {
 });
 
 /** @test */
-it('deletes a project successfully', function () {
-    Passport::actingAs(User::factory()->create());
+it('prevents updating a project if the user is not assigned to it', function () {
+    $user = User::factory()->create();
+    $otherUser = User::factory()->create();
+    Passport::actingAs($user);
 
     $project = Project::factory()->create();
+    $project->users()->attach($otherUser);
+
+    $response = $this->putJson("/api/projects/{$project->id}", [
+        'name' => 'Updated Project Name'
+    ]);
+
+    $response->assertStatus(404);
+
+    $this->assertDatabaseHas('projects', ['id' => $project->id]);
+});
+
+/** @test */
+it('deletes a project successfully if the user is assigned to it', function () {
+    $user = User::factory()->create();
+    Passport::actingAs($user);
+
+    $project = Project::factory()->create();
+    $project->users()->attach($user);
 
     $response = $this->deleteJson("/api/projects/{$project->id}");
 
@@ -192,4 +329,20 @@ it('deletes a project successfully', function () {
         ->assertJson(['message' => 'Project deleted successfully']);
 
     $this->assertDatabaseMissing('projects', ['id' => $project->id]);
+});
+
+/** @test */
+it('prevents deletion of a project if the user is not assigned to it', function () {
+    $user = User::factory()->create();
+    $otherUser = User::factory()->create();
+    Passport::actingAs($user);
+
+    $project = Project::factory()->create();
+    $project->users()->attach($otherUser);
+
+    $response = $this->deleteJson("/api/projects/{$project->id}");
+
+    $response->assertStatus(404);
+
+    $this->assertDatabaseHas('projects', ['id' => $project->id]);
 });

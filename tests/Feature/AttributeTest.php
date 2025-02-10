@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Passport\Passport;
 use Faker\Factory as Faker;
+use App\Enums\AttributeType;
 
 uses(RefreshDatabase::class);
 
@@ -27,17 +28,17 @@ it('creates a new attribute', function () {
 
     $response = $this->postJson('/api/attributes', [
         'name' => 'Priority',
-        'type' => 'select'
+        'type' => AttributeType::SELECT
     ]);
 
     $response->assertStatus(201)
         ->assertJsonStructure(['message', 'attribute' => ['id', 'name', 'type']])
         ->assertJsonPath('attribute.name', 'Priority')
-        ->assertJsonPath('attribute.type', 'select');
+        ->assertJsonPath('attribute.type', AttributeType::SELECT->value);
 
     $this->assertDatabaseHas('attributes', [
         'name' => 'Priority',
-        'type' => 'select'
+        'type' => AttributeType::SELECT->value
     ]);
 });
 
@@ -49,7 +50,7 @@ it('prevents creating an attribute with a duplicate name', function () {
 
     $response = $this->postJson('/api/attributes', [
         'name' => 'Department',
-        'type' => 'text'
+        'type' => AttributeType::TEXT
     ]);
 
     $response->assertStatus(422)
@@ -67,7 +68,7 @@ it('retrieves a single attribute', function () {
     $response->assertStatus(200)
         ->assertJsonPath('id', $attribute->id)
         ->assertJsonPath('name', $attribute->name)
-        ->assertJsonPath('type', $attribute->type);
+        ->assertJsonPath('type', $attribute->type->value);
 });
 
 /** @test */
@@ -78,18 +79,18 @@ it('updates an attribute', function () {
 
     $response = $this->putJson("/api/attributes/{$attribute->id}", [
         'name' => 'Updated Name',
-        'type' => 'number'
+        'type' => AttributeType::NUMBER
     ]);
 
     $response->assertStatus(200)
         ->assertJsonPath('message', 'Attribute updated successfully')
         ->assertJsonPath('attribute.name', 'Updated Name')
-        ->assertJsonPath('attribute.type', 'number');
+        ->assertJsonPath('attribute.type', AttributeType::NUMBER->value);
 
     $this->assertDatabaseHas('attributes', [
         'id' => $attribute->id,
         'name' => 'Updated Name',
-        'type' => 'number'
+        'type' => AttributeType::NUMBER->value
     ]);
 });
 

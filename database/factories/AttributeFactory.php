@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Enums\AttributeType;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Attribute>
@@ -20,8 +21,8 @@ class AttributeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique()->word, // Generates a unique random word
-            'type' => $this->faker->randomElement(['text', 'number', 'date', 'select']), // Randomly selects a valid type
+            'name' => $this->faker->unique()->word,
+            'type' => $this->faker->randomElement(AttributeType::values()),
         ];
     }
 }

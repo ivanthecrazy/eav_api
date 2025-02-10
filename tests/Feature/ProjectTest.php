@@ -7,6 +7,7 @@ use App\Models\AttributeValue;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Passport\Passport;
 use Faker\Factory as Faker;
+use App\Enums\AttributeType;
 
 uses(RefreshDatabase::class);
 
@@ -89,8 +90,8 @@ it('filters projects by EAV attributes', function () {
     $project2->users()->attach($user);
     $project3->users()->attach($user);
 
-    $department = Attribute::create(['name' => 'department', 'type' => 'text']);
-    $people_amount = Attribute::create(['name' => 'people_amount', 'type' => 'number']);
+    $department = Attribute::create(['name' => 'department', 'type' => AttributeType::TEXT]);
+    $people_amount = Attribute::create(['name' => 'people_amount', 'type' => AttributeType::NUMBER]);
 
     AttributeValue::create([
         'attribute_id' => $department->id,
@@ -221,8 +222,8 @@ it('creates a project with existing attributes', function () {
     Passport::actingAs($user);
 
     // Create predefined attributes
-    $department = Attribute::create(['name' => 'department', 'type' => 'text']);
-    $startDate = Attribute::create(['name' => 'start_date', 'type' => 'date']);
+    $department = Attribute::create(['name' => 'department', 'type' => AttributeType::TEXT]);
+    $startDate = Attribute::create(['name' => 'start_date', 'type' => AttributeType::DATE]);
 
     $projectData = [
         'name' => $faker->company,
@@ -275,7 +276,7 @@ it('retrieves a single project with attributes', function () {
 
     $project = Project::factory()->create();
     $project->users()->attach($user);
-    $attribute = Attribute::create(['name' => 'region', 'type' => 'text']);
+    $attribute = Attribute::create(['name' => 'region', 'type' => AttributeType::TEXT]);
 
     $attribute_value = $faker->country();
 
@@ -329,7 +330,7 @@ it('updates a project and its attributes if the user is assigned to it', functio
     // ✅ Create an attribute and assign a value to the project
     $department = Attribute::create([
         'name' => 'department',
-        'type' => 'text'
+        'type' => AttributeType::TEXT
     ]);
 
     AttributeValue::create([

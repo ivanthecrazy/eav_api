@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use App\Enums\AttributeType;
 
 class AttributeController extends Controller
 {
@@ -31,7 +32,7 @@ class AttributeController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|string|unique:attributes,name',
-            'type' => 'required|string|in:text,number,date,select',
+            'type' => 'required|integer|in:'.implode(',', AttributeType::values())
         ]);
 
         $attribute = Attribute::create($validated);
@@ -63,7 +64,7 @@ class AttributeController extends Controller
 
         $validated = $request->validate([
             'name' => 'sometimes|string|unique:attributes,name,' . $id,
-            'type' => 'sometimes|string|in:text,number,date,select',
+            'type' => 'required|integer|in:'.implode(',', AttributeType::values())
         ]);
 
         $attribute->update($validated);

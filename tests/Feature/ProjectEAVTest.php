@@ -6,6 +6,7 @@ use App\Models\AttributeValue;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Faker\Factory as Faker;
 use App\Enums\ProjectStatus;
+use App\Enums\AttributeType;
 
 uses(RefreshDatabase::class);
 
@@ -20,7 +21,7 @@ it('retrieves a dynamic project attribute', function () {
 
     $departmentAttribute = Attribute::create([
         'name' => 'department',
-        'type' => 'text',
+        'type' => AttributeType::TEXT,
     ]);
 
     $departmentValue = $faker->word;
@@ -58,7 +59,7 @@ it('updates a dynamic project attribute', function () {
 
     $attribute = Attribute::create([
         'name' => 'department',
-        'type' => 'text',
+        'type' => AttributeType::TEXT,
     ]);
 
     $initialValue = $faker->word . ' Department';

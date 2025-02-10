@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\AttributeType;
 use App\Models\Attribute;
 use App\Models\Project;
 use Illuminate\Database\Eloquent\Builder;
@@ -34,32 +35,34 @@ class ProjectFilterService
 
         $regularFilters = [];
         $eavFilters = [];
-        $attributeNames = [];
 
         foreach ($filters as $key => $value) {
             [$field, $operation] = $this->extractFilterComponents($key);
+
+            $fieldData = [
+                'value' => $value,
+                'field' => $field,
+                'operation' => $operation
+            ];
             
             if ($this->isRegularField($field)) {
-                $regularFilters[$key] = $value;
+                $regularFilters[$key] = $fieldData;
             } else {
-                $eavFilters[$key] = $value;
-                $attributeNames[] = $field;
+                $eavFilters[$key] = $fieldData;
             }
         }
 
-        $attributes = Attribute::whereIn('name', array_keys($attributeNames))
+        $attributes = Attribute::whereIn('name', array_column($eavFilters, 'field'))
             ->get()
             ->keyBy('name');
 
         foreach ($regularFilters as $key => $value) {
-            [$field, $operation] = $this->extractFilterComponents($key);
-            $this->applyRegularFilter($query, $field, $this->operators[$operation] ?? '=', $value);
+            $this->applyRegularFilter($query, $value['field'], $this->operators[$value['operation']] ?? '=', $value['value']);
         }
 
         foreach ($eavFilters as $key => $value) {
-            [$field, $operation] = $this->extractFilterComponents($key);
-            if (isset($attributes[$field])) {
-                $this->applyEAVFilter($query, $field, $this->operators[$operation] ?? '=', $value, $attributes[$field]);
+            if (isset($attributes[$value['field']])) {
+                $this->applyEAVFilter($query, $value['field'], $this->operators[$value['operation']] ?? '=', $value['value'], $attributes[$value['field']]);
             }
         }
 
@@ -105,7 +108,7 @@ class ProjectFilterService
     {
         $query->whereHas('attributeValues', function ($q) use ($field, $operator, $value, $attribute) {
 
-            if ($attribute->type === 'number' || $attribute->type === 'date') {
+            if ($attribute->type === AttributeType::NUMBER || $attribute->type === AttributeType::DATE) {
                 $q->whereRaw("CAST(value AS DECIMAL(10,2)) $operator ?", [$value]);
             } else {
                 if ($operator === 'LIKE') {

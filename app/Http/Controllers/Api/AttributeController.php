@@ -15,10 +15,11 @@ class AttributeController extends Controller
     /**
      * Display a list of all attributes.
      */
-    public function index()
+    public function index(Request $request)
     {
         $this->authorize('viewAny', Attribute::class);
-        return response()->json(Attribute::all());
+        $perPage = $request->query('per_page', 10);
+        return response()->json(Attribute::paginate($perPage));
     }
 
     /**

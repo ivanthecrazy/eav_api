@@ -17,7 +17,7 @@ it('retrieves only the projects assigned to the authenticated user', function ()
 
     Passport::actingAs($user);
 
-    $assignedProjects = Project::factory()->count(3)->create();
+    $assignedProjects = Project::factory()->count(15)->create();
     foreach ($assignedProjects as $project) {
         $project->users()->attach($user);
     }
@@ -30,9 +30,10 @@ it('retrieves only the projects assigned to the authenticated user', function ()
     $response = $this->getJson('/api/projects');
 
     $response->assertStatus(200)
-        ->assertJsonCount(3);
+        ->assertJsonCount(10, 'data')
+        ->assertJsonPath('total', 15);
 
-    foreach ($response->json() as $project) {
+    foreach ($response->json()['data'] as $project) {
         expect(collect($assignedProjects->pluck('id')))->toContain($project['id']);
     }
 });

@@ -23,15 +23,16 @@ class ProjectController extends Controller
     /**
      * Display a list of projects.
      */
-    public function index()
+    public function index(Request $request)
     {
         $this->authorize('viewAny', Project::class);
 
+        $perPage = $request->query('per_page', 10);
         $projects = Project::with('users')
             ->whereHas('users', function ($query) {
                 $query->where('user_id', Auth::id());
             })
-            ->get();
+            ->paginate($perPage);
 
         return response()->json($projects, 200);
     }

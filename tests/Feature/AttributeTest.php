@@ -10,14 +10,15 @@ uses(RefreshDatabase::class);
 
 /** @test */
 it('retrieves all attributes', function () {
-    Attribute::factory()->count(3)->create();
+    Attribute::factory()->count(15)->create();
 
     Passport::actingAs(User::factory()->create());
 
     $response = $this->getJson('/api/attributes');
 
     $response->assertStatus(200)
-        ->assertJsonCount(3);
+        ->assertJsonCount(10, 'data')
+        ->assertJsonPath('total', 15);
 });
 
 /** @test */

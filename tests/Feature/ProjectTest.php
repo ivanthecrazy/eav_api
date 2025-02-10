@@ -46,6 +46,90 @@ it('fails to retrieve all projects without authentication', function () {
 });
 
 /** @test */
+it('filters projects by name using LIKE', function () {
+    $user = User::factory()->create();
+    Passport::actingAs($user);
+
+    $projectA = Project::factory()->create(['name' => 'Cybersecurity Project']);
+    $projectB = Project::factory()->create(['name' => 'Data Protection']);
+    
+    $projectA->users()->attach($user);
+    $projectB->users()->attach($user);
+
+    $response = $this->getJson('/api/projects?filter[name_like]=%Security%');
+
+    $response->assertStatus(200)
+        ->assertJsonCount(1, 'data')
+        ->assertJsonPath('data.0.name', 'Cybersecurity Project');
+});
+
+/** @test */
+it('filters projects by status using greater than operator', function () {
+    $user = User::factory()->create();
+    Passport::actingAs($user);
+
+    Project::factory()->count(2)->create(['status' => 1])->each(fn ($project) => $project->users()->attach($user));
+    Project::factory()->count(2)->create(['status' => 2])->each(fn ($project) => $project->users()->attach($user));
+
+    $response = $this->getJson('/api/projects?filter[status_gt]=1');
+
+    $response->assertStatus(200)
+        ->assertJsonCount(2, 'data');
+});
+
+/** @test */
+it('filters projects by EAV attributes', function () {
+    $user = User::factory()->create();
+    Passport::actingAs($user);
+
+    $project = Project::factory()->create(['name' => 'Network Security']);
+    $project2 = Project::factory()->create(['name' => 'Server Performance']);
+    $project3 = Project::factory()->create(['name' => 'Some other project']);
+    $project->users()->attach($user);
+    $project2->users()->attach($user);
+    $project3->users()->attach($user);
+
+    $department = Attribute::create(['name' => 'department', 'type' => 'text']);
+    $people_amount = Attribute::create(['name' => 'people_amount', 'type' => 'number']);
+
+    AttributeValue::create([
+        'attribute_id' => $department->id,
+        'entity_id' => $project->id,
+        'value' => 'Cybersecurity'
+    ]);
+
+    AttributeValue::create([
+        'attribute_id' => $people_amount->id,
+        'entity_id' => $project->id,
+        'value' => 10
+    ]);
+
+    AttributeValue::create([
+        'attribute_id' => $people_amount->id,
+        'entity_id' => $project2->id,
+        'value' => 5
+    ]);
+
+    AttributeValue::create([
+        'attribute_id' => $department->id,
+        'entity_id' => $project3->id,
+        'value' => 'Cybersecurity'
+    ]);
+
+    AttributeValue::create([
+        'attribute_id' => $people_amount->id,
+        'entity_id' => $project3->id,
+        'value' => 1
+    ]);
+
+    $response = $this->getJson('/api/projects?filter[department_eq]=Cybersecurity&filter[people_amount_gt]=5');
+
+    $response->assertStatus(200)
+        ->assertJsonCount(1, 'data')
+        ->assertJsonPath('data.0.name', 'Network Security');
+});
+
+/** @test */
 it('creates a project and assigns the current user automatically', function () {
     $user = User::factory()->create();
     Passport::actingAs($user); // Authenticate as the user

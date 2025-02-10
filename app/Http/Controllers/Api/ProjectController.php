@@ -8,16 +8,19 @@ use App\Services\EAVService;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
+use App\Services\ProjectFilterService;
 
 class ProjectController extends Controller
 {
     use AuthorizesRequests;
 
     protected $eavService;
+    protected $filterService;
 
-    public function __construct(EAVService $eavService)
+    public function __construct(EAVService $eavService, ProjectFilterService $filterService)
     {
         $this->eavService = $eavService;
+        $this->filterService = $filterService;
     }
 
     /**
@@ -27,14 +30,15 @@ class ProjectController extends Controller
     {
         $this->authorize('viewAny', Project::class);
 
-        $perPage = $request->query('per_page', 10);
-        $projects = Project::with('users')
+        $query = Project::with('users', 'attributeValues.attribute')
             ->whereHas('users', function ($query) {
                 $query->where('user_id', Auth::id());
-            })
-            ->paginate($perPage);
+            });
 
-        return response()->json($projects, 200);
+        $perPage = $request->query('per_page', 10);
+        $projects = $this->filterService->applyFilters($request, $query)->paginate($perPage);
+
+        return response()->json($projects);
     }
 
     /**

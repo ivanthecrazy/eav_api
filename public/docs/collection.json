@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "340a8e7c-9638-4577-85d5-b39a6ad25e35",
+        "_postman_id": "4d4f440a-ed5c-4ffc-8ae7-2bfe985733fd",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,12 +28,12 @@
                             "query": [
                                 {
                                     "key": "per_page",
-                                    "value": "18",
+                                    "value": "17",
                                     "description": "The number of attributes to return per page.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/attributes?per_page=18"
+                            "raw": "{{baseUrl}}\/api\/attributes?per_page=17"
                         },
                         "method": "GET",
                         "header": [
@@ -80,7 +80,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"sit\",\"type\":58.61}"
+                            "raw": "{\"name\":\"dolor\",\"type\":40922.4853}"
                         },
                         "description": ""
                     },
@@ -105,7 +105,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "16",
                                     "description": "The ID of the attribute."
                                 }
                             ]
@@ -145,7 +145,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "14",
+                                    "value": "11",
                                     "description": "The ID of the attribute."
                                 }
                             ]
@@ -163,7 +163,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"sit\",\"type\":80.47}"
+                            "raw": "{\"name\":\"sit\",\"type\":3.71455608}"
                         },
                         "description": ""
                     },
@@ -188,7 +188,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "3",
                                     "description": "The ID of the attribute."
                                 }
                             ]
@@ -244,7 +244,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"ut\",\"last_name\":\"dolor\",\"email\":\"kilback.hildegard@example.com\",\"password\":\"f0\\\/W!y7F<W^.0t~TCUy3\"}"
+                            "raw": "{\"first_name\":\"eos\",\"last_name\":\"in\",\"email\":\"dominique.schneider@example.org\",\"password\":\"2t(aO.p66,.Eizx0,ay\"}"
                         },
                         "description": "",
                         "auth": {
@@ -282,7 +282,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"lilly17@example.org\",\"password\":\".y#fDzx%Y\"}"
+                            "raw": "{\"email\":\"wilson04@example.net\",\"password\":\"92IY:\\\"\"}"
                         },
                         "description": "",
                         "auth": {
@@ -345,18 +345,18 @@
                             "query": [
                                 {
                                     "key": "per_page",
-                                    "value": "11",
+                                    "value": "8",
                                     "description": "The number of projects to return per page.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "filter%5Battribute_name_operation%5D",
-                                    "value": "cupiditate",
+                                    "value": "officiis",
                                     "description": "The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/projects?per_page=11&filter%5Battribute_name_operation%5D=cupiditate"
+                            "raw": "{{baseUrl}}\/api\/projects?per_page=8&filter%5Battribute_name_operation%5D=officiis"
                         },
                         "method": "GET",
                         "header": [
@@ -403,7 +403,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"veniam\",\"status\":20,\"user_ids\":[\"ipsa\"],\"attributes\":[\"ratione\"]}"
+                            "raw": "{\"name\":\"commodi\",\"status\":13,\"user_ids\":[\"qui\"],\"attributes\":[\"sit\"]}"
                         },
                         "description": ""
                     },
@@ -428,7 +428,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "8",
                                     "description": "The ID of the project."
                                 }
                             ]
@@ -468,7 +468,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "18",
                                     "description": "The ID of the project."
                                 }
                             ]
@@ -486,7 +486,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ccwdvbjuggslkfofzqrquttp\",\"status\":10,\"attributes\":[{\"name\":\"laborum\",\"value\":\"cumque\"}]}"
+                            "raw": "{\"name\":\"pmgrhviyjznycsmfzaglzsb\",\"status\":3,\"attributes\":[{\"name\":\"dolores\",\"value\":\"aut\"}]}"
                         },
                         "description": ""
                     },
@@ -554,12 +554,12 @@
                             "query": [
                                 {
                                     "key": "per_page",
-                                    "value": "13",
+                                    "value": "17",
                                     "description": "The number of timesheets to return per page.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/timesheets?per_page=13"
+                            "raw": "{{baseUrl}}\/api\/timesheets?per_page=17"
                         },
                         "method": "GET",
                         "header": [
@@ -606,7 +606,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"task_name\":\"asperiores\",\"date\":\"aut\",\"hours\":4372124.43,\"project_id\":18}"
+                            "raw": "{\"task_name\":\"architecto\",\"date\":\"ducimus\",\"hours\":23860968.136,\"project_id\":9}"
                         },
                         "description": ""
                     },
@@ -631,7 +631,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "8",
+                                    "value": "3",
                                     "description": "The ID of the timesheet."
                                 }
                             ]
@@ -671,7 +671,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "8",
                                     "description": "The ID of the timesheet."
                                 }
                             ]
@@ -689,7 +689,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"task_name\":\"pariatur\",\"date\":\"enim\",\"hours\":363.4985,\"project_id\":18}"
+                            "raw": "{\"task_name\":\"alias\",\"date\":\"eius\",\"hours\":15.37,\"project_id\":19}"
                         },
                         "description": ""
                     },
@@ -714,7 +714,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "3",
+                                    "value": "13",
                                     "description": "The ID of the timesheet."
                                 }
                             ]
@@ -746,6 +746,12 @@
         }
     ],
     "auth": {
-        "type": "noauth"
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
     }
 }

@@ -15,6 +15,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -24,7 +25,7 @@ endpoints:
         name: per_page
         description: 'The number of projects to return per page.'
         required: false
-        example: 11
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -34,15 +35,15 @@ endpoints:
         name: 'filter[attribute_name_operation]'
         description: 'The name of the attribute to filter by. Please note that operation is optional and it can be lt, gt, lte, gte, eq, like. For like use * for wildcards.'
         required: false
-        example: cupiditate
+        example: officiis
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      per_page: 11
-      'filter[attribute_name_operation]': cupiditate
+      per_page: 8
+      'filter[attribute_name_operation]': officiis
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -107,7 +108,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 8d1DhVk436gabcaPfEZe6v5'
     controller: null
     method: null
     route: null
@@ -126,6 +130,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -137,7 +142,7 @@ endpoints:
         name: name
         description: 'The name of the project.'
         required: true
-        example: veniam
+        example: commodi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -147,7 +152,7 @@ endpoints:
         name: status
         description: 'The status of the project.'
         required: true
-        example: 20
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -158,7 +163,7 @@ endpoints:
         description: 'The IDs of the users to assign to the project.'
         required: true
         example:
-          - ipsa
+          - qui
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -169,7 +174,7 @@ endpoints:
         description: 'The attributes of the project. Each array item must have a name of already existing attribute and value.'
         required: true
         example:
-          - ratione
+          - sit
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -179,7 +184,7 @@ endpoints:
         name: 'attributes[].name'
         description: 'The <code>name</code> of an existing record in the attributes table.'
         required: true
-        example: dolore
+        example: quo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -189,19 +194,19 @@ endpoints:
         name: 'attributes[].value'
         description: ''
         required: true
-        example: aut
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: veniam
-      status: 20
+      name: commodi
+      status: 13
       user_ids:
-        - ipsa
+        - qui
       attributes:
-        - ratione
+        - sit
     fileParameters: []
     responses:
       -
@@ -247,7 +252,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ZcPfg5V6ab1e4E8v3aDhkd6'
     controller: null
     method: null
     route: null
@@ -266,6 +274,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -273,14 +282,14 @@ endpoints:
         name: id
         description: 'The ID of the project.'
         required: true
-        example: 13
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 13
+      id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -327,7 +336,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1aVPZb5eE86c4k6vdDf3hga'
     controller: null
     method: null
     route: null
@@ -347,6 +359,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -354,14 +367,14 @@ endpoints:
         name: id
         description: 'The ID of the project.'
         required: true
-        example: 13
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 13
+      id: 18
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -369,7 +382,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: ccwdvbjuggslkfofzqrquttp
+        example: pmgrhviyjznycsmfzaglzsb
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -379,7 +392,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: 10
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -399,7 +412,7 @@ endpoints:
         name: 'attributes[].name'
         description: 'The <code>name</code> of an existing record in the attributes table.'
         required: true
-        example: laborum
+        example: dolores
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -409,19 +422,19 @@ endpoints:
         name: 'attributes[].value'
         description: ''
         required: true
-        example: cumque
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: ccwdvbjuggslkfofzqrquttp
-      status: 10
+      name: pmgrhviyjznycsmfzaglzsb
+      status: 3
       attributes:
         -
-          name: laborum
-          value: cumque
+          name: dolores
+          value: aut
     fileParameters: []
     responses:
       -
@@ -466,7 +479,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eDPaVg4Z3fvc8a5b6Ed16hk'
     controller: null
     method: null
     route: null
@@ -485,6 +501,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -516,7 +533,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Zafd4E5D6b3vcg68kPea1Vh'
     controller: null
     method: null
     route: null

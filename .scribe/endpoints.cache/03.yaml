@@ -17,6 +17,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -26,14 +27,14 @@ endpoints:
         name: per_page
         description: 'The number of attributes to return per page.'
         required: false
-        example: 18
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanQueryParameters:
-      per_page: 18
+      per_page: 17
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
@@ -70,7 +71,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ke5dcEVZb1h38aag466fDvP'
     controller: null
     method: null
     route: null
@@ -89,6 +93,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -100,7 +105,7 @@ endpoints:
         name: name
         description: 'The name of the attribute.'
         required: true
-        example: sit
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -110,15 +115,15 @@ endpoints:
         name: type
         description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
         required: true
-        example: 58.61
+        example: 40922.4853
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: sit
-      type: 58.61
+      name: dolor
+      type: 40922.4853
     fileParameters: []
     responses:
       -
@@ -136,7 +141,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6h5dEbgZ1a48ecfa36VDvPk'
     controller: null
     method: null
     route: null
@@ -155,6 +163,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -162,14 +171,14 @@ endpoints:
         name: id
         description: 'The ID of the attribute.'
         required: true
-        example: 6
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 6
+      id: 16
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -188,7 +197,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a58c1hfDabZ64kV6PvedEg3'
     controller: null
     method: null
     route: null
@@ -208,6 +220,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -215,14 +228,14 @@ endpoints:
         name: id
         description: 'The ID of the attribute.'
         required: true
-        example: 14
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 14
+      id: 11
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -240,7 +253,7 @@ endpoints:
         name: type
         description: 'Type of the attribute (1 - text, 2 - date, 3 - number, 4 - select)'
         required: true
-        example: 80.47
+        example: 3.71455608
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -248,7 +261,7 @@ endpoints:
         custom: []
     cleanBodyParameters:
       name: sit
-      type: 80.47
+      type: 3.71455608
     fileParameters: []
     responses:
       -
@@ -266,7 +279,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 8D66g1aE4Zvab5PfeV3hdkc'
     controller: null
     method: null
     route: null
@@ -285,6 +301,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -292,14 +309,14 @@ endpoints:
         name: id
         description: 'The ID of the attribute.'
         required: true
-        example: 6
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 6
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -316,7 +333,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Vfa3E6165PDvhk8egcbZ4ad'
     controller: null
     method: null
     route: null

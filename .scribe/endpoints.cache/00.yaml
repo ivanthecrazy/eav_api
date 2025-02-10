@@ -28,7 +28,7 @@ endpoints:
         name: first_name
         description: 'The first name of the user.'
         required: true
-        example: ut
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -38,7 +38,7 @@ endpoints:
         name: last_name
         description: 'The last name of the user.'
         required: true
-        example: dolor
+        example: in
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +48,7 @@ endpoints:
         name: email
         description: 'The email of the user.'
         required: true
-        example: kilback.hildegard@example.com
+        example: dominique.schneider@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -58,17 +58,17 @@ endpoints:
         name: password
         description: 'The password of the user.'
         required: true
-        example: f0/W!y7F<W^.0t~TCUy3
+        example: '2t(aO.p66,.Eizx0,ay'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      first_name: ut
-      last_name: dolor
-      email: kilback.hildegard@example.com
-      password: f0/W!y7F<W^.0t~TCUy3
+      first_name: eos
+      last_name: in
+      email: dominique.schneider@example.org
+      password: '2t(aO.p66,.Eizx0,ay'
     fileParameters: []
     responses:
       -
@@ -119,7 +119,7 @@ endpoints:
         name: email
         description: 'The email of the user.'
         required: true
-        example: lilly17@example.org
+        example: wilson04@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -129,15 +129,15 @@ endpoints:
         name: password
         description: 'The password of the user.'
         required: true
-        example: '.y#fDzx%Y'
+        example: '92IY:"'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: lilly17@example.org
-      password: '.y#fDzx%Y'
+      email: wilson04@example.net
+      password: '92IY:"'
     fileParameters: []
     responses:
       -
@@ -176,6 +176,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -196,7 +197,10 @@ endpoints:
         description: ''
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a1heEg4PdZ8v63bD6fa5cVk'
     controller: null
     method: null
     route: null

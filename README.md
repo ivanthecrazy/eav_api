@@ -78,3 +78,5 @@ php artisan serve
 ```
 
 ## API Documentation
+
+Please refer to [this page](https://eav.ivan-larionov.dev/docs/index.html#) for the API documentation.

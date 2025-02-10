@@ -43,7 +43,7 @@ php artisan key:generate
 ### Setup Passport
 
 ```bash
-php artisan passport:client --password
+php artisan passport:client --personal
 ```
 
 Make sure to save the following credentials into your `.env` file:
@@ -80,3 +80,12 @@ php artisan serve
 ## API Documentation
 
 Please refer to [this page](https://eav.ivan-larionov.dev/docs/index.html#) for the API documentation.
+
+
+## Sample credentials
+
+Use the following token or obtain a new one using the API above:
+
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZTJkZDgyMS1jYmVlLTQ5YmMtYWY4YS04ZmI3ZTVlNGE2MjgiLCJqdGkiOiJhODQ2YjUwNGZjZTQzZDVlYWQxNjNmZGFiMTU2OTdkNWU3MzVlNWZiMDc5ODc1NTM1NTE1Mjc3NzYyMTkyZjZhYTM4ZTBiZDIwODRiNjQyMCIsImlhdCI6MTczOTE5NzQyNS42MDE1MDQsIm5iZiI6MTczOTE5NzQyNS42MDE1MDgsImV4cCI6MTc3MDczMzQyNS41OTAzNDgsInN1YiI6IjE2Iiwic2NvcGVzIjpbXX0.eE1_W1aGY8FVe750-SZho9XAXr267NsCTH8_FqDIvkljO3Pxg2bXg-MHDkONff-yEpnN2eV38spxoNBaE_A0uba_ifgQ35_OlkZwpVqZM8Lf3Rkt8DPq0vWqDvJicgNJqJ0ktE6T8tfKIb5J2sO8DKULL999jBtHCEnnquQ6NBN4i86Nurxep18EPOjMpLBdwAfnZx838GIeHsKcXpazszqBLEEugYKMUecZCTeDIJqqCH1xvCikvb_ao1RcxThk18LbuMszxnuOtCr_VBOZNZhTLKnAzqQ7sEbTQIgpUe6HF1g1RFHY40lX_XZA5TirbJCLOeB7G_adkjWLTKKnbRMbq2kYwG6rWxP2I95J-gTtd-ttbUZGbQ_3tK7f8bA0li6t7wIBoDQlv9y9T_uwNer9xjCeMzpb4xzx1E1IFSyBDoD35rsNCXGbztupwxUMmP8o7s3scoUPf2r963yQy2vSLVglORUrCXf8d3_uweYyKcZKM94QzWQbQjBrlFRmuGb_Mx9RLK1HsXG_DJhz090fHxrIq2eAJRFt3ak-OcE2xp9HP-rDYoUT8cZLifCpvcnjn613EM2tQrvRIzzAfRtm2jt3mZt7qn_YEbCRG0xngPWMhJH0AYmVgjvJFf8ngtWyWGzoW5R0TFiCN34IGQellVyT_aQLrf5W_tOI_bk
+```
